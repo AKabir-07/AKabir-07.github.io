@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kabir AMOUSSA — Portfolio BTS SIO SISR</title>
 <meta name="description" content="Portfolio de Kabir AMOUSSA, étudiant en BTS SIO option SISR — compétences réseaux, systèmes et cybersécurité.">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -208,61 +208,58 @@
       <p class="veille-duration">Suivi sur 2 ans : Septembre 2025 - Juillet 2026</p>
     </div>
 
-    <div class="veille-stepper reveal" id="veilleStepper">
-      <button class="veille-step active" data-step="0"><span class="step-num">1</span><span class="step-label">Oct. 2024</span></button>
-      <button class="veille-step" data-step="1"><span class="step-num">2</span><span class="step-label">Mars 2025</span></button>
-      <button class="veille-step" data-step="2"><span class="step-num">3</span><span class="step-label">Sept. 2025</span></button>
-      <button class="veille-step" data-step="3"><span class="step-num">4</span><span class="step-label">Mars 2026</span></button>
-      <button class="veille-step" data-step="4"><span class="step-num">5</span><span class="step-label">Été 2026</span></button>
+    <div class="veille-indicator reveal">
+      <span class="veille-num" id="veilleNum">1</span>
+      <span class="veille-period-badge" id="veillePeriod">Octobre 2024</span>
     </div>
 
     <div class="veille-carousel reveal">
-      <button class="carousel-arrow prev" id="veillePrev" aria-label="Période précédente">&larr;</button>
-
-      <div class="glass veille-card active" data-step="0">
+      <div class="glass veille-card active" data-step="0" data-period="Octobre 2024">
         <div class="veille-card-top"><span class="veille-source">ANSSI / COMMISSION EUROPÉENNE</span><span class="badge">Octobre 2024</span></div>
         <h4>Délai de transposition non respecté</h4>
         <p>La France ne respecte pas l'échéance du 17 octobre 2024 fixée par l'Union européenne pour transposer NIS 2 en droit national, ce qui conduit la Commission européenne à engager une procédure d'infraction.</p>
         <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
 
-      <div class="glass veille-card" data-step="1">
+      <div class="glass veille-card" data-step="1" data-period="Mars 2025">
         <div class="veille-card-top"><span class="veille-source">SÉNAT</span><span class="badge">Mars 2025</span></div>
         <h4>Adoption au Sénat</h4>
         <p>Le Sénat examine puis adopte en séance publique le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité, qui transpose NIS 2.</p>
         <a href="https://www.banquedesterritoires.fr/directive-nis2-la-transposition-francaise-probablement-repoussee-juillet" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
 
-      <div class="glass veille-card" data-step="2">
+      <div class="glass veille-card" data-step="2" data-period="Septembre 2025">
         <div class="veille-card-top"><span class="veille-source">ASSEMBLÉE NATIONALE</span><span class="badge">Septembre 2025</span></div>
         <h4>Vote en commission spéciale</h4>
         <p>Le projet de loi franchit une nouvelle étape avec un vote favorable en commission spéciale de l'Assemblée nationale, en vue de son examen en séance publique.</p>
         <a href="https://aide.monespacenis2.cyber.gouv.fr/fr/article/avancement-de-la-transposition-de-la-directive-nis-2-1b3j1da/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
 
-      <div class="glass veille-card" data-step="3">
+      <div class="glass veille-card" data-step="3" data-period="Mars 2026">
         <div class="veille-card-top"><span class="veille-source">ANSSI</span><span class="badge">Mars 2026</span></div>
         <h4>Lancement du Référentiel Cyber France (ReCyF)</h4>
         <p>L'ANSSI met à disposition un référentiel listant les mesures de sécurité recommandées pour se préparer aux exigences de NIS 2, en amont de la transposition définitive.</p>
         <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
 
-      <div class="glass veille-card" data-step="4">
+      <div class="glass veille-card" data-step="4" data-period="Été 2026">
         <div class="veille-card-top"><span class="veille-source">BANQUE DES TERRITOIRES</span><span class="badge">Été 2026</span></div>
         <h4>Examen en séance publique attendu</h4>
         <p>Après plusieurs retards, l'examen du texte en séance publique à l'Assemblée nationale est attendu pour l'été 2026, avec une promulgation espérée dans la foulée.</p>
         <a href="https://www.banquedesterritoires.fr/directive-nis2-la-transposition-francaise-probablement-repoussee-juillet" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
-
-      <button class="carousel-arrow next" id="veilleNext" aria-label="Période suivante">&rarr;</button>
     </div>
 
-    <div class="veille-dots" id="veilleDots">
-      <span class="dot active" data-step="0"></span>
-      <span class="dot" data-step="1"></span>
-      <span class="dot" data-step="2"></span>
-      <span class="dot" data-step="3"></span>
-      <span class="dot" data-step="4"></span>
+    <div class="veille-nav reveal">
+      <button class="carousel-arrow prev" id="veillePrev" aria-label="Période précédente">&larr;</button>
+      <div class="veille-dots" id="veilleDots">
+        <span class="dot active" data-step="0"></span>
+        <span class="dot" data-step="1"></span>
+        <span class="dot" data-step="2"></span>
+        <span class="dot" data-step="3"></span>
+        <span class="dot" data-step="4"></span>
+      </div>
+      <button class="carousel-arrow next" id="veilleNext" aria-label="Période suivante">&rarr;</button>
     </div>
 
     <div class="glass veille-conclusion reveal">
@@ -316,6 +313,6 @@
   </div>
 </footer>
 
-<script src="js/script.js"></script>
+<script src="js/script.js?v=2"></script>
 </body>
 </html>

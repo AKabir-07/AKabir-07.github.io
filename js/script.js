@@ -36,24 +36,26 @@ const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Carrousel Veille Technologique
-const veilleSteps = document.querySelectorAll('.veille-step');
 const veilleCards = document.querySelectorAll('.veille-card');
 const veilleDots = document.querySelectorAll('.veille-dots .dot');
 const veillePrev = document.getElementById('veillePrev');
 const veilleNext = document.getElementById('veilleNext');
+const veilleNum = document.getElementById('veilleNum');
+const veillePeriod = document.getElementById('veillePeriod');
 
-if (veilleSteps.length) {
+if (veilleCards.length) {
   let currentStep = 0;
-  const totalSteps = veilleSteps.length;
+  const totalSteps = veilleCards.length;
 
   function goToStep(index) {
     currentStep = (index + totalSteps) % totalSteps;
-    veilleSteps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === currentStep));
     veilleCards.forEach(c => c.classList.toggle('active', Number(c.dataset.step) === currentStep));
     veilleDots.forEach(d => d.classList.toggle('active', Number(d.dataset.step) === currentStep));
+    const activeCard = document.querySelector('.veille-card.active');
+    if (veilleNum) veilleNum.textContent = currentStep + 1;
+    if (veillePeriod && activeCard) veillePeriod.textContent = activeCard.dataset.period;
   }
 
-  veilleSteps.forEach(s => s.addEventListener('click', () => goToStep(Number(s.dataset.step))));
   veilleDots.forEach(d => d.addEventListener('click', () => goToStep(Number(d.dataset.step))));
   if (veillePrev) veillePrev.addEventListener('click', () => goToStep(currentStep - 1));
   if (veilleNext) veilleNext.addEventListener('click', () => goToStep(currentStep + 1));

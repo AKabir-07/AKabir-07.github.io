@@ -221,56 +221,58 @@ section { padding: 110px 0 60px; }
 .veille-main-title { font-size: 1.3rem; color: var(--accent); margin-bottom: 8px; }
 .veille-duration { color: var(--text-dim); font-size: 0.9rem; }
 
-.veille-stepper {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-.veille-step {
+.veille-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px 10px;
-  opacity: 0.5;
-  transition: opacity 0.25s ease;
+  gap: 12px;
+  margin-bottom: 30px;
 }
-.veille-step:hover { opacity: 0.8; }
-.veille-step.active { opacity: 1; }
-.veille-step .step-num {
-  width: 30px; height: 30px;
+.veille-num {
+  width: 42px; height: 42px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  color: var(--text-dim);
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-.veille-step.active .step-num {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #06090f;
-  box-shadow: 0 0 0 4px rgba(79,209,255,0.15);
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 0 0 5px rgba(79,209,255,0.15);
 }
-.veille-step .step-label {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  white-space: nowrap;
+.veille-period-badge {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
 }
-.veille-step.active .step-label { color: var(--accent); }
 
 .veille-carousel {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.veille-card {
+  display: none;
+  padding: 32px;
+  text-align: center;
+  animation: fadein 0.4s ease;
+}
+.veille-card.active { display: block; }
+@keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.veille-card-top { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.veille-source { color: var(--accent-2); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; }
+.veille-card h4 { margin-bottom: 10px; font-size: 1.15rem; }
+.veille-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 16px; }
+.veille-link { color: var(--accent); font-size: 0.9rem; font-weight: 600; }
+
+.veille-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
-  max-width: 750px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+  margin: 24px 0 40px;
 }
 .carousel-arrow {
   flex-shrink: 0;
@@ -286,21 +288,7 @@ section { padding: 110px 0 60px; }
 }
 .carousel-arrow:hover { transform: scale(1.08); border-color: var(--accent); }
 
-.veille-card {
-  display: none;
-  flex: 1;
-  padding: 30px;
-  animation: fadein 0.4s ease;
-}
-.veille-card.active { display: block; }
-@keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.veille-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
-.veille-source { color: var(--accent-2); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; }
-.veille-card h4 { margin-bottom: 10px; font-size: 1.05rem; }
-.veille-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 14px; }
-.veille-link { color: var(--accent); font-size: 0.88rem; font-weight: 600; }
-
-.veille-dots { display: flex; justify-content: center; gap: 8px; margin: 20px 0 40px; }
+.veille-dots { display: flex; align-items: center; gap: 8px; }
 .dot {
   width: 8px; height: 8px;
   border-radius: 50%;
@@ -313,11 +301,6 @@ section { padding: 110px 0 60px; }
 .veille-conclusion { max-width: 750px; margin: 0 auto; padding: 28px; }
 .veille-conclusion h3 { color: var(--accent); margin-bottom: 10px; font-size: 1rem; }
 .veille-conclusion p { color: var(--text-dim); font-size: 0.92rem; }
-
-@media (max-width: 600px) {
-  .veille-carousel { flex-direction: column; }
-  .carousel-arrow { align-self: center; }
-}
 
 /* -------- Epreuves E5/E6 -------- */
 .epreuve-banner {
