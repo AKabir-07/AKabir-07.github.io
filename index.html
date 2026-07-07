@@ -203,32 +203,73 @@
     <h2 class="section-title reveal">Veille Technologique</h2>
     <p class="section-sub reveal">Cybersécurité et Conformité Réglementaire des Infrastructures</p>
 
-    <div class="glass veille-box reveal">
-      <h3>L'évolution et l'application de la directive européenne NIS 2 en France</h3>
-      <p>
-        Suivi engagé depuis 2025 sur la transposition de la directive européenne NIS 2, qui élargit
-        fortement le nombre de secteurs et d'organisations soumis à des obligations de cybersécurité
-        (gestion des risques, notification d'incidents, responsabilité des dirigeants).
-      </p>
-      <p>
-        <strong>Point d'étape (juillet 2026)</strong> — la France accuse un retard important sur le
-        calendrier européen : le délai de transposition fixé par l'Union européenne au 17 octobre 2024
-        n'a pas été respecté, ce qui a conduit la Commission européenne à engager une procédure
-        d'infraction. Le projet de loi relatif à la résilience des infrastructures critiques et au
-        renforcement de la cybersécurité a été adopté au Sénat en mars 2025, puis voté en commission
-        spéciale à l'Assemblée nationale en septembre 2025 ; son examen en séance publique est attendu
-        pour l'été 2026. En parallèle, l'ANSSI met à disposition depuis mars 2026 le Référentiel Cyber
-        France (ReCyF), qui liste les mesures de sécurité recommandées pour se préparer aux exigences
-        de NIS 2.
-      </p>
-      <p><em>Conclusion (à ce stade) :</em> même non encore transposée en droit français, la directive
-        structure déjà les feuilles de route cybersécurité des organisations concernées, qui anticipent
-        sa mise en application plutôt que d'attendre le texte définitif.</p>
-      <div class="veille-sources">
-        <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" rel="noopener">ANSSI — La directive NIS 2</a>
-        <a href="https://www.banquedesterritoires.fr/directive-nis2-la-transposition-francaise-probablement-repoussee-juillet" target="_blank" rel="noopener">Banque des Territoires — Transposition repoussée à juillet 2026</a>
-        <a href="https://aide.monespacenis2.cyber.gouv.fr/fr/article/avancement-de-la-transposition-de-la-directive-nis-2-1b3j1da/" target="_blank" rel="noopener">MonEspaceNIS2 — Avancement de la transposition</a>
+    <div class="veille-header reveal">
+      <h3 class="veille-main-title">L'évolution et l'application de la directive européenne NIS 2 en France</h3>
+      <p class="veille-duration">Suivi sur 2 ans : Septembre 2025 - Juillet 2026</p>
+    </div>
+
+    <div class="veille-stepper reveal" id="veilleStepper">
+      <button class="veille-step active" data-step="0"><span class="step-num">1</span><span class="step-label">Oct. 2024</span></button>
+      <button class="veille-step" data-step="1"><span class="step-num">2</span><span class="step-label">Mars 2025</span></button>
+      <button class="veille-step" data-step="2"><span class="step-num">3</span><span class="step-label">Sept. 2025</span></button>
+      <button class="veille-step" data-step="3"><span class="step-num">4</span><span class="step-label">Mars 2026</span></button>
+      <button class="veille-step" data-step="4"><span class="step-num">5</span><span class="step-label">Été 2026</span></button>
+    </div>
+
+    <div class="veille-carousel reveal">
+      <button class="carousel-arrow prev" id="veillePrev" aria-label="Période précédente">&larr;</button>
+
+      <div class="glass veille-card active" data-step="0">
+        <div class="veille-card-top"><span class="veille-source">ANSSI / COMMISSION EUROPÉENNE</span><span class="badge">Octobre 2024</span></div>
+        <h4>Délai de transposition non respecté</h4>
+        <p>La France ne respecte pas l'échéance du 17 octobre 2024 fixée par l'Union européenne pour transposer NIS 2 en droit national, ce qui conduit la Commission européenne à engager une procédure d'infraction.</p>
+        <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
       </div>
+
+      <div class="glass veille-card" data-step="1">
+        <div class="veille-card-top"><span class="veille-source">SÉNAT</span><span class="badge">Mars 2025</span></div>
+        <h4>Adoption au Sénat</h4>
+        <p>Le Sénat examine puis adopte en séance publique le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité, qui transpose NIS 2.</p>
+        <a href="https://www.banquedesterritoires.fr/directive-nis2-la-transposition-francaise-probablement-repoussee-juillet" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
+      </div>
+
+      <div class="glass veille-card" data-step="2">
+        <div class="veille-card-top"><span class="veille-source">ASSEMBLÉE NATIONALE</span><span class="badge">Septembre 2025</span></div>
+        <h4>Vote en commission spéciale</h4>
+        <p>Le projet de loi franchit une nouvelle étape avec un vote favorable en commission spéciale de l'Assemblée nationale, en vue de son examen en séance publique.</p>
+        <a href="https://aide.monespacenis2.cyber.gouv.fr/fr/article/avancement-de-la-transposition-de-la-directive-nis-2-1b3j1da/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
+      </div>
+
+      <div class="glass veille-card" data-step="3">
+        <div class="veille-card-top"><span class="veille-source">ANSSI</span><span class="badge">Mars 2026</span></div>
+        <h4>Lancement du Référentiel Cyber France (ReCyF)</h4>
+        <p>L'ANSSI met à disposition un référentiel listant les mesures de sécurité recommandées pour se préparer aux exigences de NIS 2, en amont de la transposition définitive.</p>
+        <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
+      </div>
+
+      <div class="glass veille-card" data-step="4">
+        <div class="veille-card-top"><span class="veille-source">BANQUE DES TERRITOIRES</span><span class="badge">Été 2026</span></div>
+        <h4>Examen en séance publique attendu</h4>
+        <p>Après plusieurs retards, l'examen du texte en séance publique à l'Assemblée nationale est attendu pour l'été 2026, avec une promulgation espérée dans la foulée.</p>
+        <a href="https://www.banquedesterritoires.fr/directive-nis2-la-transposition-francaise-probablement-repoussee-juillet" target="_blank" rel="noopener" class="veille-link">Lire l'article &nearr;</a>
+      </div>
+
+      <button class="carousel-arrow next" id="veilleNext" aria-label="Période suivante">&rarr;</button>
+    </div>
+
+    <div class="veille-dots" id="veilleDots">
+      <span class="dot active" data-step="0"></span>
+      <span class="dot" data-step="1"></span>
+      <span class="dot" data-step="2"></span>
+      <span class="dot" data-step="3"></span>
+      <span class="dot" data-step="4"></span>
+    </div>
+
+    <div class="glass veille-conclusion reveal">
+      <h3>Conclusion (à ce stade)</h3>
+      <p>Même non encore transposée en droit français, la directive NIS 2 structure déjà les feuilles de
+        route cybersécurité des organisations concernées, qui anticipent sa mise en application plutôt
+        que d'attendre le texte définitif.</p>
     </div>
   </div>
 </section>

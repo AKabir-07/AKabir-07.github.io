@@ -217,11 +217,107 @@ section { padding: 110px 0 60px; }
 .project-card .tags { margin-top: 6px; }
 
 /* -------- Veille -------- */
-.veille-box { padding: 32px; }
-.veille-box h3 { color: var(--accent); margin-bottom: 12px; }
-.veille-box p { color: var(--text-dim); margin-bottom: 14px; }
-.veille-sources { margin-top: 16px; }
-.veille-sources a { color: var(--accent); font-size: 0.88rem; display: block; margin-bottom: 6px; }
+.veille-header { text-align: center; max-width: 700px; margin: 0 auto 36px; }
+.veille-main-title { font-size: 1.3rem; color: var(--accent); margin-bottom: 8px; }
+.veille-duration { color: var(--text-dim); font-size: 0.9rem; }
+
+.veille-stepper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.veille-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+.veille-step:hover { opacity: 0.8; }
+.veille-step.active { opacity: 1; }
+.veille-step .step-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.veille-step.active .step-num {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #06090f;
+  box-shadow: 0 0 0 4px rgba(79,209,255,0.15);
+}
+.veille-step .step-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.veille-step.active .step-label { color: var(--accent); }
+
+.veille-carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.carousel-arrow:hover { transform: scale(1.08); border-color: var(--accent); }
+
+.veille-card {
+  display: none;
+  flex: 1;
+  padding: 30px;
+  animation: fadein 0.4s ease;
+}
+.veille-card.active { display: block; }
+@keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.veille-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.veille-source { color: var(--accent-2); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; }
+.veille-card h4 { margin-bottom: 10px; font-size: 1.05rem; }
+.veille-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 14px; }
+.veille-link { color: var(--accent); font-size: 0.88rem; font-weight: 600; }
+
+.veille-dots { display: flex; justify-content: center; gap: 8px; margin: 20px 0 40px; }
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--glass-border);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.dot.active { background: var(--accent); transform: scale(1.3); }
+
+.veille-conclusion { max-width: 750px; margin: 0 auto; padding: 28px; }
+.veille-conclusion h3 { color: var(--accent); margin-bottom: 10px; font-size: 1rem; }
+.veille-conclusion p { color: var(--text-dim); font-size: 0.92rem; }
+
+@media (max-width: 600px) {
+  .veille-carousel { flex-direction: column; }
+  .carousel-arrow { align-self: center; }
+}
 
 /* -------- Epreuves E5/E6 -------- */
 .epreuve-banner {
