@@ -60,3 +60,49 @@ if (veilleCards.length) {
   if (veillePrev) veillePrev.addEventListener('click', () => goToStep(currentStep - 1));
   if (veilleNext) veilleNext.addEventListener('click', () => goToStep(currentStep + 1));
 }
+
+// Modale Compétences
+const skillsData = [
+  { title: "Serveur DHCP", desc: "J'ai appris les principes de base de la configuration d'un serveur DHCP : attribution automatique d'adresses IP, gestion des plages et des baux, pour simplifier l'administration d'un réseau." },
+  { title: "Serveur DNS", desc: "Je connais les notions de configuration d'un serveur DNS : résolution de noms, zones et enregistrements, essentielles au bon fonctionnement d'un réseau d'entreprise." },
+  { title: "Adressage IP", desc: "Je maîtrise l'adressage IP (IPv4, sous-réseaux) nécessaire pour planifier, configurer et dépanner une infrastructure réseau." },
+  { title: "Brassage & connectivité", desc: "J'ai pratiqué le brassage réseau et les tests de connectivité (ping, traceroute) pour diagnostiquer et valider une installation." },
+  { title: "Maintenance matérielle", desc: "J'ai réalisé des interventions matérielles sur poste Windows : changement de disque dur et de RAM, en formation et dans un contexte professionnel." },
+  { title: "Configuration IP", desc: "Je sais configurer les paramètres IP d'un poste Windows pour l'intégrer correctement à un réseau d'entreprise." },
+  { title: "PowerShell", desc: "J'ai découvert les bases de PowerShell pour automatiser des tâches d'administration système simples." },
+  { title: "Chiffrement", desc: "Je connais les notions de chiffrement de supports amovibles (type BitLocker To Go) pour protéger des données sensibles en mobilité." },
+  { title: "Sécurisation des postes", desc: "J'ai appris les bonnes pratiques de sécurisation des postes de travail, renforcées par l'e-sensibilisation SensCyber de Cybermalveillance.gouv.fr." },
+  { title: "Analyse de vulnérabilités", desc: "J'ai des notions d'analyse de vulnérabilités, pour identifier les failles potentielles d'un système avant qu'elles ne soient exploitées." }
+];
+
+const skillCards = document.querySelectorAll('.skill-card');
+const skillOverlay = document.getElementById('skillModalOverlay');
+const skillTitleEl = document.getElementById('skillModalTitle');
+const skillDescEl = document.getElementById('skillModalDesc');
+const skillClose = document.getElementById('skillModalClose');
+const skillPrev = document.getElementById('skillModalPrev');
+const skillNext = document.getElementById('skillModalNext');
+
+if (skillCards.length && skillOverlay) {
+  let currentSkill = 0;
+
+  function openSkill(index) {
+    currentSkill = (index + skillsData.length) % skillsData.length;
+    skillTitleEl.textContent = skillsData[currentSkill].title;
+    skillDescEl.textContent = skillsData[currentSkill].desc;
+    skillOverlay.classList.add('open');
+  }
+  function closeSkill() { skillOverlay.classList.remove('open'); }
+
+  skillCards.forEach(c => c.addEventListener('click', () => openSkill(Number(c.dataset.skill))));
+  if (skillClose) skillClose.addEventListener('click', closeSkill);
+  if (skillPrev) skillPrev.addEventListener('click', () => openSkill(currentSkill - 1));
+  if (skillNext) skillNext.addEventListener('click', () => openSkill(currentSkill + 1));
+  skillOverlay.addEventListener('click', (e) => { if (e.target === skillOverlay) closeSkill(); });
+  document.addEventListener('keydown', (e) => {
+    if (!skillOverlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeSkill();
+    if (e.key === 'ArrowLeft') openSkill(currentSkill - 1);
+    if (e.key === 'ArrowRight') openSkill(currentSkill + 1);
+  });
+}

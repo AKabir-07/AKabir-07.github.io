@@ -184,6 +184,79 @@ section { padding: 110px 0 60px; }
   margin: 2px 4px 2px 0;
 }
 
+/* -------- Skills grid (cartes individuelles + modale) -------- */
+.skills-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 28px 18px;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.skill-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+.skill-icon {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(79,209,255,0.1);
+  color: var(--accent);
+}
+.skill-icon svg { width: 24px; height: 24px; }
+.skill-title { font-weight: 600; font-size: 0.95rem; }
+.skill-more { color: var(--accent); font-size: 0.8rem; }
+
+.skill-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 7, 12, 0.72);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+}
+.skill-modal-overlay.open { display: flex; }
+.skill-modal {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  padding: 40px 36px;
+  text-align: center;
+  animation: fadein 0.25s ease;
+}
+.skill-modal h3 { font-size: 1.3rem; margin-bottom: 16px; }
+.skill-modal p { color: var(--text-dim); font-size: 0.95rem; }
+.skill-modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.skill-modal-prev, .skill-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.skill-modal-prev { left: -60px; }
+.skill-modal-next { right: -60px; }
+@media (max-width: 640px) {
+  .skill-modal-prev { left: 6px; }
+  .skill-modal-next { right: 6px; }
+  .skill-modal { padding: 40px 20px; }
+}
+
 .placeholder-card {
   border-style: dashed;
   opacity: 0.6;
