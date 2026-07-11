@@ -206,9 +206,25 @@ if (e5Grid && e5SidebarList) {
   function closeTask() { taskOverlay.classList.remove('open'); }
 
   taskCards.forEach(c => c.addEventListener('click', () => openTask(Number(c.dataset.id))));
+
+  // Clic sidebar : scroll + surbrillance de la carte correspondante (pas de popup)
+  function scrollToTask(id) {
+    const card = document.querySelector(`.task-card[data-id="${id}"]`);
+    if (!card) return;
+    // Réinitialise les filtres pour être sûr que la carte visée est bien visible
+    activeBloc = 'all';
+    activeLieu = 'all';
+    legendItems.forEach(i => i.classList.toggle('active', i.dataset.bloc === 'all'));
+    filterPills.forEach(p => p.classList.toggle('active', p.dataset.lieu === 'all'));
+    applyFilters();
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('highlight');
+    setTimeout(() => card.classList.remove('highlight'), 1600);
+  }
   e5SidebarList.querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => {
     e.preventDefault();
-    openTask(Number(a.dataset.id));
+    scrollToTask(Number(a.dataset.id));
   }));
   if (taskClose) taskClose.addEventListener('click', closeTask);
   if (taskPrev) taskPrev.addEventListener('click', () => openTask(currentTask - 1));
