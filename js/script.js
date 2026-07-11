@@ -111,15 +111,142 @@ if (skillCards.length && skillOverlay) {
 // Page E5 — Tableau de bord des tâches de stage
 // =========================================================
 const e5Tasks = [
-  { id: 0, title: "Inventaire du matériel informatique", icon: "monitor", short: "Inventaire complet des équipements (postes, écrans, périphériques, consommables, imprimantes) en prévision d'un déménagement, avec vérification de l'état du matériel.", full: "Ma principale mission a consisté à réaliser un inventaire complet des équipements informatiques de l'entreprise en prévision du futur déménagement des locaux. J'ai créé un fichier Excel structuré en plusieurs feuilles pour répertorier les équipements en stock, les consommables (toners) et les imprimantes. J'ai ensuite participé à une vérification avec le responsable informatique afin d'identifier les équipements fonctionnels, hors service, ou nécessitant une réparation.", bloc: "patrimoine", lieu: "entreprise", outils: ["Excel"] },
-  { id: 1, title: "Suivi des tickets et incidents", icon: "ticket", short: "Découverte de l'outil Freshservice et observation du traitement des demandes utilisateurs, ainsi que de la gestion des incidents selon leur gravité.", full: "J'ai assisté à une réunion de l'équipe informatique consacrée à la gestion des incidents selon leur niveau de gravité et leur impact sur l'activité de l'entreprise (incidents prioritaires, procédures de résolution, réduction du nombre d'incidents, amélioration de la sécurité du SI). J'ai également découvert l'outil Freshservice et suivi le traitement d'un ticket de création de compte utilisateur.", bloc: "incidents", lieu: "entreprise", outils: ["Freshservice"] },
-  { id: 2, title: "Gestion des comptes utilisateurs", icon: "user", short: "Observation de la création d'un compte Microsoft 365, affectation à un groupe de service et vérification des droits et accès.", full: "J'ai observé la création d'un compte utilisateur dans Microsoft 365 Administration, l'affectation de cet utilisateur à un groupe correspondant à son service, ainsi que la vérification des droits et accès associés.", bloc: "service", lieu: "entreprise", outils: ["Microsoft 365 Admin"] },
-  { id: 3, title: "Déploiement d'une infrastructure de supervision", icon: "server", short: "Mise en place d'une solution de supervision des serveurs : VM Hyper-V, Ubuntu Server, Docker, Prometheus et Grafana.", full: "Élaboration d'un plan d'action détaillé pour déployer une solution de supervision temps réel des serveurs (CPU, mémoire, stockage, réseau). J'ai créé et configuré une machine virtuelle Hyper-V, installé Ubuntu Server LTS, configuré le service SSH pour l'administration à distance, puis installé Docker pour déployer les conteneurs Prometheus (collecte des métriques) et Grafana (tableaux de bord de visualisation).", bloc: "projet", lieu: "entreprise", outils: ["Hyper-V", "Ubuntu Server", "Docker", "Prometheus", "Grafana", "SSH"] },
-  { id: 4, title: "Masterisation et déploiement via PXE", icon: "monitor", short: "Déploiement automatique d'une image système standardisée sur plusieurs machines via démarrage réseau PXE.", full: "Participation à une opération de masterisation et de déploiement système via PXE (Preboot Execution Environment) : démarrage des postes directement depuis le réseau via le BIOS afin de déployer automatiquement une image système standardisée sur plusieurs machines.", bloc: "patrimoine", lieu: "entreprise", outils: ["PXE"] },
-  { id: 5, title: "Intégration Windows Exporter & alertes Prometheus", icon: "bell", short: "Supervision d'un serveur Windows et création de règles d'alertes (serveur injoignable, CPU/RAM élevés).", full: "Installation de Windows Exporter sur un serveur Windows cible pour la collecte de métriques, configuration d'un nouveau job Prometheus dédié, et validation de la remontée des informations (état du serveur, CPU, RAM) via le label hostname. J'ai ensuite organisé les fichiers de configuration Prometheus, créé un groupe d'alertes dédié aux serveurs Windows (Serveur_Injoignable, CPU_Élevé, RAM_Élevée) et intégré le montage des règles dans le conteneur via docker-compose.yml.", bloc: "incidents", lieu: "entreprise", outils: ["Docker Compose", "Prometheus", "Alertmanager", "Windows Exporter", "SSH", "Nano"] },
-  { id: 6, title: "Notifications d'alertes & documentation technique", icon: "document", short: "Configuration de l'envoi d'alertes par email via Alertmanager, tests de bout en bout et rédaction de la documentation.", full: "Finalisation de la configuration d'Alertmanager pour l'envoi automatique d'alertes par email (paramétrage SMTP, destinataires du service informatique) et simulation d'incidents pour valider les notifications. J'ai ensuite vérifié le bon fonctionnement de toute la stack de supervision (Prometheus, Grafana, Alertmanager) et rédigé la documentation technique complète de la solution.", bloc: "devpro", lieu: "entreprise", outils: ["Alertmanager", "Documentation technique"] },
-  { id: 7, title: "Masterisation de poste & création de compte", icon: "user", short: "Déploiement d'une image Windows 11 préconfigurée et participation à la création d'un compte utilisateur.", full: "Participation à la masterisation d'un poste informatique par déploiement d'une image système Windows 11 préconfigurée, afin de préparer rapidement le poste avant sa mise en service. J'ai également assisté à la création d'un compte pour un nouvel utilisateur, incluant l'attribution de la licence nécessaire.", bloc: "service", lieu: "entreprise", outils: ["Windows 11", "Microsoft 365"] },
-  { id: 8, title: "Déploiement d'Uptime Kuma", icon: "radar", short: "Mise en place d'une supervision de disponibilité (HTTPS, TCP, Ping, DNS) pour le site web et les services réseau.", full: "Déploiement d'Uptime Kuma via Docker (fichier docker-compose.yml, volumes persistants, port d'accès) pour superviser la disponibilité du site internet de l'entreprise et de plusieurs services réseau. J'ai configuré des sondes HTTPS, TCP, Ping (ICMP) et DNS, puis rédigé la documentation technique de la solution.", bloc: "projet", lieu: "entreprise", outils: ["Docker", "Uptime Kuma"] }
+  { id: 0, title: "Inventaire du matériel informatique", icon: "monitor", bloc: "patrimoine", lieu: "entreprise",
+    short: "Inventaire complet des équipements (postes, écrans, périphériques, consommables, imprimantes) en prévision d'un déménagement, avec vérification de l'état du matériel.",
+    tags: ["Gestion de parc", "Excel", "Inventaire"],
+    description: "En prévision du déménagement des locaux de l'entreprise, j'ai été chargé de réaliser un inventaire complet du matériel informatique afin d'anticiper le transfert et le remplacement des équipements obsolètes.",
+    outils: ["Excel", "Échanges avec le responsable informatique"],
+    travauxIntro: "J'ai structuré un fichier Excel en plusieurs feuilles afin de répertorier précisément le parc informatique de l'entreprise.",
+    etapes: [
+      { label: "Recensement", desc: "Répertorier les équipements en stock : ordinateurs, écrans, périphériques." },
+      { label: "Consommables", desc: "Lister les consommables informatiques, notamment les toners d'imprimantes." },
+      { label: "Imprimantes", desc: "Répertorier l'ensemble des imprimantes présentes dans l'entreprise." },
+      { label: "Vérification", desc: "Contrôler avec le responsable informatique l'état de chaque équipement (fonctionnel, hors service, à réparer)." }
+    ],
+    images: [],
+    resultat: "Un inventaire fiable et à jour du parc informatique, exploitable pour préparer le déménagement et anticiper les besoins de remplacement de matériel." },
+
+  { id: 1, title: "Suivi des tickets et incidents", icon: "ticket", bloc: "incidents", lieu: "entreprise",
+    short: "Découverte de l'outil Freshservice et observation du traitement des demandes utilisateurs, ainsi que de la gestion des incidents selon leur gravité.",
+    tags: ["Support", "Freshservice", "Gestion des incidents"],
+    description: "Découverte des processus de gestion des incidents informatiques de l'entreprise, à travers une réunion d'équipe et le suivi d'un ticket réel sur l'outil Freshservice.",
+    outils: ["Freshservice"],
+    travauxIntro: "J'ai assisté à une réunion de l'équipe informatique consacrée à la gestion des incidents selon leur niveau de gravité, puis j'ai découvert l'outil de ticketing Freshservice.",
+    etapes: [
+      { label: "Réunion incidents", desc: "Comprendre comment les incidents sont traités selon leur gravité et leur impact sur l'activité." },
+      { label: "Priorisation", desc: "Échanges sur la gestion des incidents prioritaires et les procédures de résolution." },
+      { label: "Découverte Freshservice", desc: "Observation du traitement des demandes utilisateurs sur l'outil." },
+      { label: "Suivi d'un ticket", desc: "Suivi complet d'un ticket de création de compte utilisateur, de l'ouverture à la résolution." }
+    ],
+    images: [],
+    resultat: "Une meilleure compréhension des procédures de traitement des incidents et de l'usage d'un outil de ticketing professionnel." },
+
+  { id: 2, title: "Gestion des comptes utilisateurs", icon: "user", bloc: "service", lieu: "entreprise",
+    short: "Observation de la création d'un compte Microsoft 365, affectation à un groupe de service et vérification des droits et accès.",
+    tags: ["Microsoft 365", "Administration", "Comptes utilisateurs"],
+    description: "Observation du processus de création et de gestion d'un compte utilisateur au sein de l'environnement Microsoft 365 de l'entreprise.",
+    outils: ["Microsoft 365 Administration"],
+    travauxIntro: "J'ai suivi la création d'un compte utilisateur dans Microsoft 365 Administration, depuis sa création jusqu'à la vérification de ses accès.",
+    etapes: [
+      { label: "Création du compte", desc: "Observation de la création d'un compte dans Microsoft 365 Administration." },
+      { label: "Affectation au groupe", desc: "Affectation de l'utilisateur au groupe correspondant à son service." },
+      { label: "Vérification des accès", desc: "Contrôle des droits et accès associés au compte créé." }
+    ],
+    images: [],
+    resultat: "Compréhension du circuit complet de provisionnement d'un compte utilisateur en entreprise." },
+
+  { id: 3, title: "Déploiement d'une infrastructure de supervision", icon: "server", bloc: "projet", lieu: "entreprise",
+    short: "Mise en place d'une solution de supervision des serveurs : VM Hyper-V, Ubuntu Server, Docker, Prometheus et Grafana.",
+    tags: ["Supervision", "Hyper-V", "Docker", "Prometheus", "Grafana"],
+    description: "Mise en place, avec l'équipe informatique, d'une solution de supervision et de monitoring des serveurs de l'entreprise, permettant de surveiller en temps réel leur état et leurs performances.",
+    outils: ["Hyper-V", "Ubuntu Server LTS", "SSH", "Docker", "Prometheus", "Grafana"],
+    travauxIntro: "Un plan d'action détaillé a d'abord été élaboré pour définir les étapes du déploiement, avant la mise en place technique de la solution.",
+    etapes: [
+      { label: "Machine virtuelle", desc: "Création et configuration d'une VM sur un serveur physique via Hyper-V." },
+      { label: "Installation d'Ubuntu Server", desc: "Installation d'Ubuntu Server LTS à partir d'une image ISO officielle." },
+      { label: "Configuration SSH", desc: "Mise en place du service SSH pour l'administration à distance sécurisée." },
+      { label: "Déploiement Docker", desc: "Installation de Docker pour déployer les conteneurs de supervision." },
+      { label: "Prometheus & Grafana", desc: "Déploiement de Prometheus (collecte des métriques) et Grafana (visualisation en tableaux de bord)." }
+    ],
+    images: [],
+    resultat: "Une infrastructure de supervision partiellement opérationnelle, avec la collecte des métriques serveurs et une première visualisation Grafana en place." },
+
+  { id: 4, title: "Masterisation et déploiement via PXE", icon: "monitor", bloc: "patrimoine", lieu: "entreprise",
+    short: "Déploiement automatique d'une image système standardisée sur plusieurs machines via démarrage réseau PXE.",
+    tags: ["Masterisation", "PXE", "Déploiement"],
+    description: "Participation à une opération de déploiement automatisé d'une image système standardisée sur plusieurs postes via démarrage réseau.",
+    outils: ["PXE (Preboot Execution Environment)"],
+    travauxIntro: "Cette intervention consistait à démarrer des postes directement depuis le réseau via le BIOS afin de déployer automatiquement une image système sur plusieurs machines.",
+    etapes: [
+      { label: "Démarrage réseau", desc: "Configuration du BIOS des postes pour démarrer via PXE." },
+      { label: "Déploiement de l'image", desc: "Déploiement automatique de l'image système standardisée sur les machines cibles." }
+    ],
+    images: [],
+    resultat: "Plusieurs postes masterisés rapidement et de façon homogène, sans intervention manuelle poste par poste." },
+
+  { id: 5, title: "Intégration Windows Exporter & alertes Prometheus", icon: "bell", bloc: "incidents", lieu: "entreprise",
+    short: "Supervision d'un serveur Windows et création de règles d'alertes (serveur injoignable, CPU/RAM élevés).",
+    tags: ["Prometheus", "Windows Exporter", "Alertmanager"],
+    description: "Extension de l'infrastructure de supervision à un serveur Windows, et mise en place de règles d'alertes pour détecter automatiquement les anomalies.",
+    outils: ["Windows Exporter", "Prometheus", "Docker Compose", "Nano", "SSH"],
+    travauxIntro: "Après vérification du bon fonctionnement des conteneurs Docker existants, j'ai intégré un serveur Windows à la supervision et configuré des alertes automatiques.",
+    etapes: [
+      { label: "Installation de Windows Exporter", desc: "Installation sur le serveur Windows cible pour permettre la collecte des métriques système." },
+      { label: "Configuration Prometheus", desc: "Ajout d'un nouveau job dédié à Windows Exporter, avec label hostname (T1A-V-SAO) pour identifier le serveur." },
+      { label: "Tests de remontée", desc: "Vérification de l'état du serveur, de l'utilisation CPU/RAM et des autres indicateurs système." },
+      { label: "Règles d'alertes", desc: "Création du groupe d'alertes Windows : Serveur_Injoignable, CPU_Élevé, RAM_Élevée." },
+      { label: "Intégration Docker", desc: "Montage du répertoire des règles d'alertes dans le conteneur Prometheus via docker-compose.yml." }
+    ],
+    images: [],
+    resultat: "Le serveur Windows est désormais supervisé et remonte ses métriques ; les alertes critiques sont détectées automatiquement par Prometheus." },
+
+  { id: 6, title: "Notifications d'alertes & documentation technique", icon: "document", bloc: "devpro", lieu: "entreprise",
+    short: "Configuration de l'envoi d'alertes par email via Alertmanager, tests de bout en bout et rédaction de la documentation.",
+    tags: ["Alertmanager", "SMTP", "Documentation"],
+    description: "Finalisation de la chaîne d'alerte en configurant l'envoi automatique de notifications par email, puis validation complète de la solution de supervision.",
+    outils: ["Alertmanager", "SMTP"],
+    travauxIntro: "J'ai complété la configuration d'Alertmanager pour permettre l'envoi automatique d'alertes par courrier électronique en cas d'incident détecté par Prometheus.",
+    etapes: [
+      { label: "Configuration SMTP", desc: "Ajout des informations de connexion au serveur SMTP (serveur, port, compte d'envoi) dans Alertmanager." },
+      { label: "Destinataires", desc: "Ajout des adresses des membres du service informatique devant recevoir les alertes." },
+      { label: "Simulation d'incidents", desc: "Simulation de plusieurs alertes pour valider l'envoi correct des emails." },
+      { label: "Vérifications globales", desc: "Contrôle de la collecte Prometheus, des tableaux de bord Grafana et du déclenchement des alertes Alertmanager." },
+      { label: "Documentation", desc: "Rédaction de la documentation technique complète de la solution de supervision." }
+    ],
+    images: [],
+    resultat: "Une chaîne d'alerte fonctionnelle de bout en bout, avec notification email automatique, et une documentation permettant la reprise ou la maintenance de la solution." },
+
+  { id: 7, title: "Masterisation de poste & création de compte", icon: "user", bloc: "service", lieu: "entreprise",
+    short: "Déploiement d'une image Windows 11 préconfigurée et participation à la création d'un compte utilisateur.",
+    tags: ["Windows 11", "Masterisation", "Microsoft 365"],
+    description: "Préparation d'un poste de travail pour un nouvel utilisateur : déploiement d'une image système et création de son compte.",
+    outils: ["Windows 11", "Microsoft 365"],
+    travauxIntro: "J'ai participé à la masterisation d'un poste destiné à un utilisateur, ainsi qu'à la création de son compte.",
+    etapes: [
+      { label: "Masterisation", desc: "Déploiement d'une image système Windows 11 préconfigurée sur le poste." },
+      { label: "Création du compte", desc: "Création du compte pour le nouvel utilisateur." },
+      { label: "Attribution de licence", desc: "Attribution de la licence Microsoft 365 nécessaire à l'utilisateur." }
+    ],
+    images: [],
+    resultat: "Un poste prêt à l'emploi et un compte utilisateur pleinement fonctionnel avant l'arrivée du collaborateur." },
+
+  { id: 8, title: "Déploiement d'Uptime Kuma", icon: "radar", bloc: "projet", lieu: "entreprise",
+    short: "Mise en place d'une supervision de disponibilité (HTTPS, TCP, Ping, DNS) pour le site web et les services réseau.",
+    tags: ["Uptime Kuma", "Docker", "Disponibilité"],
+    description: "Mise en place d'une seconde solution de supervision, orientée disponibilité des services, en complément de la stack Prometheus/Grafana déjà déployée.",
+    outils: ["Docker", "Docker Compose", "Uptime Kuma"],
+    travauxIntro: "Contrairement à Prometheus, davantage orienté métriques système, Uptime Kuma permet de surveiller en temps réel la disponibilité des serveurs, sites web et services réseau.",
+    etapes: [
+      { label: "Déploiement du conteneur", desc: "Création d'un fichier docker-compose.yml pour déployer Uptime Kuma (image, volumes persistants, port)." },
+      { label: "Configuration initiale", desc: "Accès à l'interface web et création du compte administrateur." },
+      { label: "Sonde HTTPS", desc: "Vérification de l'accessibilité du site web de l'entreprise, du temps de réponse et de la validité du certificat SSL/TLS." },
+      { label: "Sonde TCP", desc: "Contrôle qu'un service réseau écoute bien sur un port précis." },
+      { label: "Sonde Ping (ICMP)", desc: "Vérification de la joignabilité d'un équipement et mesure de la latence." },
+      { label: "Sonde DNS", desc: "Contrôle de la bonne résolution d'un nom de domaine vers son adresse IP." },
+      { label: "Documentation", desc: "Rédaction de la documentation technique de l'installation, la configuration et l'utilisation de la solution." }
+    ],
+    images: [],
+    resultat: "Une supervision de disponibilité opérationnelle sur le site web et les services réseau clés, avec alertes automatiques en cas d'interruption." }
 ];
 
 const e5Icons = {
@@ -195,22 +322,57 @@ if (e5Grid && e5SidebarList) {
 
   // Modale
   const taskOverlay = document.getElementById('taskModalOverlay');
-  const taskTitleEl = document.getElementById('taskModalTitle');
-  const taskDescEl = document.getElementById('taskModalDesc');
-  const taskBlocEl = document.getElementById('taskModalBloc');
-  const taskToolsEl = document.getElementById('taskModalTools');
+  const taskBodyEl = document.getElementById('taskModalBody');
   const taskClose = document.getElementById('taskModalClose');
   const taskPrev = document.getElementById('taskModalPrev');
   const taskNext = document.getElementById('taskModalNext');
   let currentTask = 0;
 
+  const sectionIcons = {
+    info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>',
+    tools: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+    target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>'
+  };
+
   function openTask(index) {
     currentTask = (index + e5Tasks.length) % e5Tasks.length;
     const t = e5Tasks[currentTask];
-    taskTitleEl.textContent = t.title;
-    taskDescEl.textContent = t.full;
-    taskBlocEl.textContent = blocLabels[t.bloc];
-    taskToolsEl.innerHTML = t.outils.map(o => `<span class="badge">${o}</span>`).join('');
+
+    const tagsHtml = t.tags.map(tag => `<span class="badge">${tag}</span>`).join('');
+    const outilsHtml = t.outils.map(o => `<li>${o}</li>`).join('');
+    const etapesHtml = t.etapes.map(e => `<li><strong>${e.label} :</strong> ${e.desc}</li>`).join('');
+    const imagesHtml = (t.images && t.images.length)
+      ? t.images.map(img => `<figure class="task-figure"><img src="${img.src}" alt="${img.caption || ''}"><figcaption>${img.caption || ''}</figcaption></figure>`).join('')
+      : '';
+
+    taskBodyEl.innerHTML = `
+      <h3 class="accent">${t.title}</h3>
+      <div class="task-tags">${tagsHtml}</div>
+
+      <div class="task-section">
+        <div class="task-section-head">${sectionIcons.info}<h4>Description de la mission</h4></div>
+        <p>${t.description}</p>
+      </div>
+
+      <div class="task-section">
+        <div class="task-section-head">${sectionIcons.tools}<h4>Outils utilisés</h4></div>
+        <ul class="task-checklist">${outilsHtml}</ul>
+      </div>
+
+      <div class="task-section">
+        <div class="task-section-head">${sectionIcons.check}<h4>Travaux réalisés</h4></div>
+        <p>${t.travauxIntro}</p>
+        ${imagesHtml}
+        <p class="task-etapes-title">Étapes de l'intervention :</p>
+        <ul class="task-checklist">${etapesHtml}</ul>
+      </div>
+
+      <div class="task-section">
+        <div class="task-section-head">${sectionIcons.target}<h4>Résultat</h4></div>
+        <p>${t.resultat}</p>
+      </div>
+    `;
     taskOverlay.classList.add('open');
   }
   function closeTask() { taskOverlay.classList.remove('open'); }

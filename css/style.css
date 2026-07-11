@@ -471,7 +471,6 @@ table.competences td { color: var(--text-dim); }
 .sidebar-icon svg { width: 18px; height: 18px; }
 .sidebar-text { line-height: 1.25; }
 
-/* -------- Sidebar réduite : rail d'icônes uniquement -------- */
 .e5-sidebar.collapsed { width: 64px; padding: 16px 10px; }
 .e5-sidebar.collapsed .e5-sidebar-head { border-bottom: none; margin-bottom: 10px; padding-bottom: 0; justify-content: center; }
 .e5-sidebar.collapsed .e5-sidebar-head span { display: none; }
@@ -540,13 +539,36 @@ table.competences td { color: var(--text-dim); }
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.task-modal { max-width: 560px; text-align: left; }
-.task-modal .badge { margin-bottom: 14px; }
-.task-modal h3 { text-align: left; }
-.task-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.task-tools .badge { margin: 0; }
+.task-modal { max-width: 600px; text-align: left; max-height: 85vh; overflow-y: auto; }
+.task-modal h3 { text-align: left; font-size: 1.3rem; }
+.task-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+.task-section { margin-bottom: 22px; }
+.task-section-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.task-section-head svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.task-section-head h4 { font-size: 1rem; color: var(--text); }
+.task-section p { color: var(--text-dim); font-size: 0.92rem; }
+.task-checklist { list-style: none; padding: 0; margin: 10px 0; }
+.task-checklist li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+.task-checklist li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.task-checklist li strong { color: var(--text); }
+.task-etapes-title { margin-top: 16px; font-weight: 600; color: var(--text); font-size: 0.92rem; }
+.task-figure { margin: 16px 0; }
+.task-figure img { width: 100%; border-radius: 10px; border: 1px solid var(--glass-border); }
+.task-figure figcaption { text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 6px; font-style: italic; }
 
 @media (max-width: 860px) {
   .e5-layout { grid-template-columns: 1fr; }
   .e5-sidebar { position: static; }
 }
+
