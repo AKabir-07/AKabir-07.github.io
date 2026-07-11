@@ -137,7 +137,7 @@ const e5SidebarList = document.getElementById('e5SidebarList');
 if (e5Grid && e5SidebarList) {
   // Rendu des cartes
   e5Grid.innerHTML = e5Tasks.map(t => `
-    <button class="glass card task-card reveal" data-id="${t.id}" data-bloc="${t.bloc}" data-lieu="${t.lieu}">
+    <button class="glass card task-card" data-id="${t.id}" data-bloc="${t.bloc}" data-lieu="${t.lieu}">
       <span class="bloc-badge dot-${t.bloc}"></span>
       <h4>${t.title}</h4>
       <p>${t.short}</p>
