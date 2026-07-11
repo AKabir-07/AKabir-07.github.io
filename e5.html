@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Épreuve E5 — Kabir AMOUSSA</title>
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -32,56 +32,58 @@
   <p style="color:var(--text-dim);">BTS SIO • Option SISR — Session 2027 — Kabir AMOUSSA</p>
 </header>
 
-<section style="padding-top:0;">
-  <div class="container">
+<div class="e5-layout container">
 
+  <!-- SIDEBAR -->
+  <aside class="e5-sidebar glass" id="e5Sidebar">
+    <div class="e5-sidebar-head">
+      <span>Tableau de bord</span>
+      <button id="e5SidebarToggle" aria-label="Réduire">&larr;</button>
+    </div>
+    <ul class="e5-sidebar-list" id="e5SidebarList"></ul>
+  </aside>
+
+  <div class="e5-main">
     <div class="glass card reveal" style="margin-bottom:30px;">
       <p>
-        Cette page rassemble, par bloc de compétences du référentiel SISR, les réalisations
-        démontrant les compétences acquises en formation et en milieu professionnel.
-        <strong> Contenu à compléter avec le détail du stage informatique de juin 2026.</strong>
+        Cette page présente, tâche par tâche, mes réalisations en formation et durant mon stage
+        informatique (juin 2026), classées par bloc de compétences du référentiel BTS SIO SISR.
       </p>
     </div>
 
-    <h2 class="bloc-title reveal">Bloc 1 — Support et mise à disposition de services informatiques</h2>
-    <table class="competences reveal">
-      <thead><tr><th>Compétence</th><th>Réalisation associée</th></tr></thead>
-      <tbody>
-        <tr><td>Assurer le support des services informatiques</td><td class="placeholder-card" style="border-radius:8px; padding:8px;">À compléter (stage juin 2026)</td></tr>
-        <tr><td>Répondre aux demandes des utilisateurs</td><td>À compléter</td></tr>
-      </tbody>
-    </table>
+    <h3 class="reveal" style="margin-bottom:16px;">Légende des blocs de compétences</h3>
+    <div class="e5-legend reveal" id="e5Legend">
+      <button class="legend-item active" data-bloc="all"><span class="legend-dot" style="background:var(--accent)"></span>Toutes</button>
+      <button class="legend-item" data-bloc="patrimoine"><span class="legend-dot dot-patrimoine"></span>Gérer le patrimoine informatique</button>
+      <button class="legend-item" data-bloc="incidents"><span class="legend-dot dot-incidents"></span>Répondre aux incidents et demandes</button>
+      <button class="legend-item" data-bloc="presence"><span class="legend-dot dot-presence"></span>Développer la présence en ligne</button>
+      <button class="legend-item" data-bloc="projet"><span class="legend-dot dot-projet"></span>Travailler en mode projet</button>
+      <button class="legend-item" data-bloc="service"><span class="legend-dot dot-service"></span>Mettre à disposition un service</button>
+      <button class="legend-item" data-bloc="devpro"><span class="legend-dot dot-devpro"></span>Organiser son développement pro.</button>
+    </div>
 
-    <h2 class="bloc-title reveal">Bloc 2 — Maintenance des services informatiques</h2>
-    <table class="competences reveal">
-      <thead><tr><th>Compétence</th><th>Réalisation associée</th></tr></thead>
-      <tbody>
-        <tr><td>Maintenance préventive/corrective</td><td>À compléter</td></tr>
-        <tr><td>Gestion du parc informatique</td><td>À compléter</td></tr>
-      </tbody>
-    </table>
+    <div class="e5-filters reveal">
+      <button class="filter-pill active" data-lieu="all">Toutes</button>
+      <button class="filter-pill" data-lieu="entreprise">En entreprise (stage)</button>
+      <button class="filter-pill" data-lieu="formation">En formation</button>
+    </div>
 
-    <h2 class="bloc-title reveal">Bloc 3 — Ajout, modification d'un service informatique</h2>
-    <table class="competences reveal">
-      <thead><tr><th>Compétence</th><th>Réalisation associée</th></tr></thead>
-      <tbody>
-        <tr><td>Conception d'une solution d'infrastructure</td><td>À compléter</td></tr>
-        <tr><td>Déploiement d'un service réseau (DHCP/DNS)</td><td>Notions acquises en formation — projet à documenter</td></tr>
-      </tbody>
-    </table>
-
-    <h2 class="bloc-title reveal">Bloc transverse — Cybersécurité des services informatiques</h2>
-    <table class="competences reveal">
-      <thead><tr><th>Compétence</th><th>Réalisation associée</th></tr></thead>
-      <tbody>
-        <tr><td>Sécurisation des postes et des supports</td><td>Certification Cisco « Introduction à la cybersécurité » ; chiffrement de supports amovibles</td></tr>
-        <tr><td>Sensibilisation à la cybersécurité</td><td>E-sensibilisation SensCyber (Cybermalveillance.gouv.fr)</td></tr>
-        <tr><td>Conformité réglementaire (RGPD)</td><td>Atelier RGPD CNIL — Module 1 (100%)</td></tr>
-      </tbody>
-    </table>
-
+    <div class="grid e5-tasks-grid" id="e5TasksGrid"></div>
   </div>
-</section>
+</div>
+
+<!-- Modale détail tâche -->
+<div class="skill-modal-overlay" id="taskModalOverlay">
+  <div class="glass skill-modal task-modal">
+    <button class="skill-modal-close" id="taskModalClose" aria-label="Fermer">&times;</button>
+    <button class="carousel-arrow skill-modal-prev" id="taskModalPrev" aria-label="Tâche précédente">&larr;</button>
+    <button class="carousel-arrow skill-modal-next" id="taskModalNext" aria-label="Tâche suivante">&rarr;</button>
+    <span class="badge" id="taskModalBloc"></span>
+    <h3 id="taskModalTitle" class="accent"></h3>
+    <p id="taskModalDesc"></p>
+    <div id="taskModalTools" class="task-tools"></div>
+  </div>
+</div>
 
 <footer>
   <div class="container">
@@ -89,6 +91,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=3"></script>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>
