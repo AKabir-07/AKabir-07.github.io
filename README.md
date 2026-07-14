@@ -47,14 +47,19 @@ Vérifie ensuite que le repo est bien **Public** (Settings → General → tu do
 
 ## Étape 4 — Configurer Git (une seule fois)
 
+⚠️ Ces informations sont visibles publiquement sur GitHub sur **chaque commit** que tu fais.
+Utilise ton pseudo (pas ton nom complet) et une adresse email « noreply » fournie par GitHub
+(Settings → Emails → coche "Keep my email addresses private", l'adresse à copier apparaît
+juste au-dessus, du type `1234567+AKabir-07@users.noreply.github.com`) :
+
 ```
-git config --global user.name "Kabir Amoussa"
-git config --global user.email "kabir.amoussa@outlook.fr"
+git config --global user.name "AKabir-07"
+git config --global user.email "TON-ADRESSE-NOREPLY@users.noreply.github.com"
 ```
 
 ## Étape 5 — Ouvrir PowerShell dans ce dossier
 
-1. Ouvre ce dossier dans l'Explorateur Windows : `C:\Users\kabir\OneDrive\Bureau\kabir-amoussa.github.io`
+1. Ouvre ce dossier dans l'Explorateur Windows : `C:\Users\kabir\Projet portfolio BTS\kabir-amoussa.github.io`
 2. Clique dans la barre d'adresse en haut, tape `powershell`, appuie sur **Entrée**.
 3. Vérifie avec `dir` que tu vois bien `index.html`, `css`, `js`, `assets`.
 
