@@ -109,14 +109,14 @@ if (skillCards.length && skillOverlay) {
 
 // Modale Parcours (Formation & Expérience)
 const parcoursData = [
-  { title: "BTS SIO — Option SISR", dates: "Depuis 2025", org: "Lycée Voillaume, Aulnay-sous-Bois",
+  { title: "BTS SIO — Option SISR", dates: "Depuis septembre 2025", org: "Lycée Voillaume, Aulnay-sous-Bois",
     full: "Formation en BTS Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux (SISR), au Lycée Voillaume à Aulnay-sous-Bois. Cette formation couvre l'administration de serveurs et de réseaux, la virtualisation, la supervision d'infrastructure et la cybersécurité.",
     link: "https://www.lyceevoillaume.fr/", linkLabel: "Site du lycée" },
-  { title: "1ère année BUT Techniques de commercialisation", dates: "2024 - 2025", org: "IUT de Cergy-Pontoise, site de Sarcelles",
+  { title: "1ère année BUT Techniques de commercialisation", dates: "Septembre 2024 - Juin 2025", org: "IUT de Cergy-Pontoise, site de Sarcelles",
     full: "Première année de BUT Techniques de commercialisation à l'IUT de Cergy-Pontoise (site de Sarcelles). Cette année m'a permis de confirmer mon intérêt pour l'informatique et de me réorienter vers un BTS SIO option SISR.",
     link: "https://cyiut.cyu.fr/publications/site-de-sarcelles", linkLabel: "Site de l'IUT" },
-  { title: "Baccalauréat général", dates: "2023 - 2024", org: "Lycée Galilée, Gennevilliers",
-    full: "Baccalauréat général obtenu au Lycée Galilée à Gennevilliers.",
+  { title: "Baccalauréat général", dates: "Septembre 2023 - Juillet 2024", org: "Lycée Galilée, Gennevilliers",
+    full: "Baccalauréat général obtenu au Lycée Galilée à Gennevilliers, avec les spécialités Mathématiques et Sciences Économiques et Sociales (SES).",
     link: "https://lyc-galilee-gennevilliers.ac-versailles.fr/", linkLabel: "Site du lycée" },
   { title: "Stage informatique", dates: "Juin 2026 (4 semaines)", org: "HYGECO",
     full: [
@@ -134,7 +134,7 @@ const parcoursData = [
   { title: "Stage Vente", dates: "Janvier - Février 2025 (1 mois)", org: "Maxxi Games, Saint-Denis",
     full: "Stage d'observation et de vente d'un mois au sein du magasin de jeux vidéo Maxxi Games à Saint-Denis : accueil et conseil client, mise en rayon, tenue de caisse.",
     link: "http://www.maxxi-games.fr/", linkLabel: "Site de l'entreprise" },
-  { title: "Coach adjoint bénévole", dates: "2023 - 2024 (saison complète)", org: "Équipe de football (catégorie U12), Gennevilliers",
+  { title: "Coach adjoint bénévole", dates: "Septembre 2023 - Juin 2024 (saison complète)", org: "Équipe de football (catégorie U12), Gennevilliers",
     full: "Coach adjoint bénévole d'une équipe de football de la catégorie U12 à Gennevilliers pendant une saison complète : organisation des entraînements et encadrement des jeunes joueurs.",
     link: null, linkLabel: null }
 ];
