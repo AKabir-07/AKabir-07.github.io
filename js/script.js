@@ -182,7 +182,7 @@ if (parcoursItems.length && parcoursOverlay) {
 // Page E5 — Tableau de bord des tâches de stage
 // =========================================================
 const e5Tasks = [
-  { id: 0, title: "Inventaire du matériel informatique", icon: "monitor", bloc: "patrimoine", lieu: "entreprise",
+  { id: 0, title: "Inventaire du matériel informatique", icon: "monitor", bloc: "patrimoine", lieu: "entreprise", annee: 1,
     short: "Inventaire complet des équipements (postes, écrans, périphériques, consommables, imprimantes) en prévision d'un déménagement, avec vérification de l'état du matériel.",
     tags: ["Gestion de parc", "Excel", "Inventaire"],
     description: "En prévision du déménagement des locaux de l'entreprise, j'ai été chargé de réaliser un inventaire complet du matériel informatique afin d'anticiper le transfert et le remplacement des équipements obsolètes.",
@@ -197,7 +197,7 @@ const e5Tasks = [
     images: [],
     resultat: "Un inventaire fiable et à jour du parc informatique, exploitable pour préparer le déménagement et anticiper les besoins de remplacement de matériel." },
 
-  { id: 1, title: "Suivi des tickets et incidents", icon: "ticket", bloc: "incidents", lieu: "entreprise",
+  { id: 1, title: "Suivi des tickets et incidents", icon: "ticket", bloc: "incidents", lieu: "entreprise", annee: 1,
     short: "Découverte de l'outil Freshservice et observation du traitement des demandes utilisateurs, ainsi que de la gestion des incidents selon leur gravité.",
     tags: ["Support", "Freshservice", "Gestion des incidents"],
     description: "Découverte des processus de gestion des incidents informatiques de l'entreprise, à travers une réunion d'équipe et le suivi d'un ticket réel sur l'outil Freshservice.",
@@ -212,7 +212,7 @@ const e5Tasks = [
     images: [],
     resultat: "Une meilleure compréhension des procédures de traitement des incidents et de l'usage d'un outil de ticketing professionnel." },
 
-  { id: 2, title: "Gestion des comptes utilisateurs", icon: "user", bloc: "service", lieu: "entreprise",
+  { id: 2, title: "Gestion des comptes utilisateurs", icon: "user", bloc: "service", lieu: "entreprise", annee: 1,
     short: "Observation de la création d'un compte Microsoft 365, affectation à un groupe de service et vérification des droits et accès.",
     tags: ["Microsoft 365", "Administration", "Comptes utilisateurs"],
     description: "Observation du processus de création et de gestion d'un compte utilisateur au sein de l'environnement Microsoft 365 de l'entreprise.",
@@ -226,7 +226,7 @@ const e5Tasks = [
     images: [],
     resultat: "Compréhension du circuit complet de provisionnement d'un compte utilisateur en entreprise." },
 
-  { id: 3, title: "Déploiement d'une infrastructure de supervision", icon: "server", bloc: "projet", lieu: "entreprise",
+  { id: 3, title: "Déploiement d'une infrastructure de supervision", icon: "server", bloc: "projet", lieu: "entreprise", annee: 1,
     short: "Mise en place d'une solution de supervision des serveurs : VM Hyper-V, Ubuntu Server, Docker, Prometheus et Grafana.",
     tags: ["Supervision", "Hyper-V", "Docker", "Prometheus", "Grafana"],
     description: "Mise en place, avec l'équipe informatique, d'une solution de supervision et de monitoring des serveurs de l'entreprise, permettant de surveiller en temps réel leur état et leurs performances.",
@@ -242,7 +242,7 @@ const e5Tasks = [
     images: [],
     resultat: "Une infrastructure de supervision partiellement opérationnelle, avec la collecte des métriques serveurs et une première visualisation Grafana en place." },
 
-  { id: 4, title: "Masterisation et déploiement via PXE", icon: "monitor", bloc: "patrimoine", lieu: "entreprise",
+  { id: 4, title: "Masterisation et déploiement via PXE", icon: "monitor", bloc: "patrimoine", lieu: "entreprise", annee: 1,
     short: "Déploiement automatique d'une image système standardisée sur plusieurs machines via démarrage réseau PXE.",
     tags: ["Masterisation", "PXE", "Déploiement"],
     description: "Participation à une opération de déploiement automatisé d'une image système standardisée sur plusieurs postes via démarrage réseau.",
@@ -255,7 +255,7 @@ const e5Tasks = [
     images: [],
     resultat: "Plusieurs postes masterisés rapidement et de façon homogène, sans intervention manuelle poste par poste." },
 
-  { id: 5, title: "Intégration Windows Exporter & alertes Prometheus", icon: "bell", bloc: "incidents", lieu: "entreprise",
+  { id: 5, title: "Intégration Windows Exporter & alertes Prometheus", icon: "bell", bloc: "incidents", lieu: "entreprise", annee: 1,
     short: "Supervision d'un serveur Windows et création de règles d'alertes (serveur injoignable, CPU/RAM élevés).",
     tags: ["Prometheus", "Windows Exporter", "Alertmanager"],
     description: "Extension de l'infrastructure de supervision à un serveur Windows, et mise en place de règles d'alertes pour détecter automatiquement les anomalies.",
@@ -271,7 +271,7 @@ const e5Tasks = [
     images: [],
     resultat: "Le serveur Windows est désormais supervisé et remonte ses métriques ; les alertes critiques sont détectées automatiquement par Prometheus." },
 
-  { id: 6, title: "Notifications d'alertes & documentation technique", icon: "document", bloc: "devpro", lieu: "entreprise",
+  { id: 6, title: "Notifications d'alertes & documentation technique", icon: "document", bloc: "devpro", lieu: "entreprise", annee: 1,
     short: "Configuration de l'envoi d'alertes par email via Alertmanager, tests de bout en bout et rédaction de la documentation.",
     tags: ["Alertmanager", "SMTP", "Documentation"],
     description: "Finalisation de la chaîne d'alerte en configurant l'envoi automatique de notifications par email, puis validation complète de la solution de supervision.",
@@ -287,7 +287,7 @@ const e5Tasks = [
     images: [],
     resultat: "Une chaîne d'alerte fonctionnelle de bout en bout, avec notification email automatique, et une documentation permettant la reprise ou la maintenance de la solution." },
 
-  { id: 7, title: "Masterisation de poste & création de compte", icon: "user", bloc: "service", lieu: "entreprise",
+  { id: 7, title: "Masterisation de poste & création de compte", icon: "user", bloc: "service", lieu: "entreprise", annee: 1,
     short: "Déploiement d'une image Windows 11 préconfigurée et participation à la création d'un compte utilisateur.",
     tags: ["Windows 11", "Masterisation", "Microsoft 365"],
     description: "Préparation d'un poste de travail pour un nouvel utilisateur : déploiement d'une image système et création de son compte.",
@@ -301,7 +301,7 @@ const e5Tasks = [
     images: [],
     resultat: "Un poste prêt à l'emploi et un compte utilisateur pleinement fonctionnel avant l'arrivée du collaborateur." },
 
-  { id: 8, title: "Déploiement d'Uptime Kuma", icon: "radar", bloc: "projet", lieu: "entreprise",
+  { id: 8, title: "Déploiement d'Uptime Kuma", icon: "radar", bloc: "projet", lieu: "entreprise", annee: 1,
     short: "Mise en place d'une supervision de disponibilité (HTTPS, TCP, Ping, DNS) pour le site web et les services réseau.",
     tags: ["Uptime Kuma", "Docker", "Disponibilité"],
     description: "Mise en place d'une seconde solution de supervision, orientée disponibilité des services, en complément de la stack Prometheus/Grafana déjà déployée.",
@@ -332,10 +332,10 @@ const e5Icons = {
 
 const blocLabels = {
   patrimoine: "Gérer le patrimoine informatique",
-  incidents: "Répondre aux incidents et demandes",
-  presence: "Développer la présence en ligne",
+  incidents: "Répondre aux incidents et aux demandes d'assistance et d'évolution",
+  presence: "Développer la présence en ligne de l'organisation",
   projet: "Travailler en mode projet",
-  service: "Mettre à disposition un service",
+  service: "Mettre à disposition des utilisateurs un service informatique",
   devpro: "Organiser son développement professionnel"
 };
 
@@ -345,7 +345,7 @@ const e5SidebarList = document.getElementById('e5SidebarList');
 if (e5Grid && e5SidebarList) {
   // Rendu des cartes
   e5Grid.innerHTML = e5Tasks.map(t => `
-    <button class="glass card task-card" data-id="${t.id}" data-bloc="${t.bloc}" data-lieu="${t.lieu}">
+    <button class="glass card task-card" data-id="${t.id}" data-bloc="${t.bloc}" data-lieu="${t.lieu}" data-annee="${t.annee}">
       <span class="bloc-badge dot-${t.bloc}"></span>
       <h4>${t.title}</h4>
       <p>${t.short}</p>
@@ -359,19 +359,25 @@ if (e5Grid && e5SidebarList) {
   `).join('');
 
   const taskCards = document.querySelectorAll('.task-card');
+  const e5EmptyMsg = document.getElementById('e5Empty');
 
   // Filtres
   const legendItems = document.querySelectorAll('.legend-item');
-  const filterPills = document.querySelectorAll('.filter-pill');
   let activeBloc = 'all';
   let activeLieu = 'all';
+  let activeAnnee = 'all';
 
   function applyFilters() {
+    let visibleCount = 0;
     taskCards.forEach(card => {
       const matchBloc = activeBloc === 'all' || card.dataset.bloc === activeBloc;
       const matchLieu = activeLieu === 'all' || card.dataset.lieu === activeLieu;
-      card.classList.toggle('hidden', !(matchBloc && matchLieu));
+      const matchAnnee = activeAnnee === 'all' || card.dataset.annee === activeAnnee;
+      const visible = matchBloc && matchLieu && matchAnnee;
+      card.classList.toggle('hidden', !visible);
+      if (visible) visibleCount++;
     });
+    if (e5EmptyMsg) e5EmptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
   }
   legendItems.forEach(item => item.addEventListener('click', () => {
     legendItems.forEach(i => i.classList.remove('active'));
@@ -379,12 +385,18 @@ if (e5Grid && e5SidebarList) {
     activeBloc = item.dataset.bloc;
     applyFilters();
   }));
-  filterPills.forEach(pill => pill.addEventListener('click', () => {
-    filterPills.forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    activeLieu = pill.dataset.lieu;
-    applyFilters();
-  }));
+
+  // Chaque rangée de pastilles (lieu, année...) gère son propre état "active"
+  document.querySelectorAll('.e5-filters').forEach(row => {
+    const pills = row.querySelectorAll('.filter-pill');
+    pills.forEach(pill => pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      if (pill.dataset.lieu !== undefined) activeLieu = pill.dataset.lieu;
+      if (pill.dataset.annee !== undefined) activeAnnee = pill.dataset.annee;
+      applyFilters();
+    }));
+  });
 
   // Sidebar collapse
   const e5Sidebar = document.getElementById('e5Sidebar');
@@ -457,8 +469,12 @@ if (e5Grid && e5SidebarList) {
     // Réinitialise les filtres pour être sûr que la carte visée est bien visible
     activeBloc = 'all';
     activeLieu = 'all';
+    activeAnnee = 'all';
     legendItems.forEach(i => i.classList.toggle('active', i.dataset.bloc === 'all'));
-    filterPills.forEach(p => p.classList.toggle('active', p.dataset.lieu === 'all'));
+    document.querySelectorAll('.filter-pill').forEach(p => {
+      const isAll = p.dataset.lieu === 'all' || p.dataset.annee === 'all';
+      p.classList.toggle('active', isAll);
+    });
     applyFilters();
 
     card.scrollIntoView({ behavior: 'smooth', block: 'center' });

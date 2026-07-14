@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Épreuve E5 — Kabir AMOUSSA</title>
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -63,11 +63,11 @@
     <div class="e5-legend reveal" id="e5Legend">
       <button class="legend-item active" data-bloc="all"><span class="legend-dot" style="background:var(--accent)"></span>Toutes</button>
       <button class="legend-item" data-bloc="patrimoine"><span class="legend-dot dot-patrimoine"></span>Gérer le patrimoine informatique</button>
-      <button class="legend-item" data-bloc="incidents"><span class="legend-dot dot-incidents"></span>Répondre aux incidents et demandes</button>
-      <button class="legend-item" data-bloc="presence"><span class="legend-dot dot-presence"></span>Développer la présence en ligne</button>
+      <button class="legend-item" data-bloc="incidents"><span class="legend-dot dot-incidents"></span>Répondre aux incidents et aux demandes d'assistance et d'évolution</button>
+      <button class="legend-item" data-bloc="presence"><span class="legend-dot dot-presence"></span>Développer la présence en ligne de l'organisation</button>
       <button class="legend-item" data-bloc="projet"><span class="legend-dot dot-projet"></span>Travailler en mode projet</button>
-      <button class="legend-item" data-bloc="service"><span class="legend-dot dot-service"></span>Mettre à disposition un service</button>
-      <button class="legend-item" data-bloc="devpro"><span class="legend-dot dot-devpro"></span>Organiser son développement pro.</button>
+      <button class="legend-item" data-bloc="service"><span class="legend-dot dot-service"></span>Mettre à disposition des utilisateurs un service informatique</button>
+      <button class="legend-item" data-bloc="devpro"><span class="legend-dot dot-devpro"></span>Organiser son développement professionnel</button>
     </div>
 
     <div class="e5-filters reveal">
@@ -76,7 +76,14 @@
       <button class="filter-pill" data-lieu="formation">En formation</button>
     </div>
 
+    <div class="e5-filters reveal">
+      <button class="filter-pill active" data-annee="all">Toutes années</button>
+      <button class="filter-pill" data-annee="1">1ère année</button>
+      <button class="filter-pill" data-annee="2">2nde année</button>
+    </div>
+
     <div class="grid e5-tasks-grid" id="e5TasksGrid"></div>
+    <p class="e5-empty" id="e5Empty" style="display:none; color:var(--text-dim); text-align:center; margin-top:20px;">Aucune mission dans cette catégorie pour l'instant.</p>
   </div>
 </div>
 
@@ -101,6 +108,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=10"></script>
+<script src="js/script.js?v=14"></script>
 </body>
 </html>
