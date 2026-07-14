@@ -285,6 +285,9 @@ section { padding: 110px 0 60px; }
 .tl-date { color: var(--accent); font-size: 0.82rem; font-weight: 600; }
 .tl-item h3 { margin: 4px 0; }
 .tl-item p { color: var(--text-dim); font-size: 0.92rem; }
+.tl-missions { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.tl-missions li { position: relative; padding-left: 18px; color: var(--text-dim); font-size: 0.9rem; line-height: 1.4; }
+.tl-missions li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
 /* -------- Projets -------- */
 .project-card { display: flex; flex-direction: column; gap: 10px; }
