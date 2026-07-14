@@ -107,6 +107,77 @@ if (skillCards.length && skillOverlay) {
   });
 }
 
+// Modale Parcours (Formation & Expérience)
+const parcoursData = [
+  { title: "BTS SIO — Option SISR", dates: "Depuis 2025", org: "Lycée Voillaume, Aulnay-sous-Bois",
+    full: "Formation en BTS Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux (SISR), au Lycée Voillaume à Aulnay-sous-Bois. Cette formation couvre l'administration de serveurs et de réseaux, la virtualisation, la supervision d'infrastructure et la cybersécurité.",
+    link: "https://www.lyceevoillaume.fr/", linkLabel: "Site du lycée" },
+  { title: "1ère année BUT Techniques de commercialisation", dates: "2024 - 2025", org: "IUT de Cergy-Pontoise, site de Sarcelles",
+    full: "Première année de BUT Techniques de commercialisation à l'IUT de Cergy-Pontoise (site de Sarcelles). Cette année m'a permis de confirmer mon intérêt pour l'informatique et de me réorienter vers un BTS SIO option SISR.",
+    link: "https://cyiut.cyu.fr/publications/site-de-sarcelles", linkLabel: "Site de l'IUT" },
+  { title: "Baccalauréat général", dates: "2023 - 2024", org: "Lycée Galilée, Gennevilliers",
+    full: "Baccalauréat général obtenu au Lycée Galilée à Gennevilliers.",
+    link: "https://lyc-galilee-gennevilliers.ac-versailles.fr/", linkLabel: "Site du lycée" },
+  { title: "Stage informatique", dates: "Juin 2026 (4 semaines)", org: "HYGECO",
+    full: [
+      "Inventaire du matériel informatique en prévision d'un déménagement",
+      "Suivi des tickets et incidents utilisateurs sur Freshservice",
+      "Gestion des comptes utilisateurs sous Microsoft 365",
+      "Déploiement d'une infrastructure de supervision (Hyper-V, Docker, Prometheus, Grafana)",
+      "Masterisation et déploiement de postes via PXE",
+      "Intégration de Windows Exporter et création de règles d'alertes Prometheus",
+      "Configuration des notifications d'alertes par email et rédaction de documentation technique",
+      "Masterisation d'un poste et création de compte pour un nouvel utilisateur",
+      "Déploiement d'Uptime Kuma pour la supervision de disponibilité des services"
+    ],
+    link: "https://www.hygeco.com/", linkLabel: "Site de l'entreprise" },
+  { title: "Stage Vente", dates: "Janvier - Février 2025 (1 mois)", org: "Maxxi Games, Saint-Denis",
+    full: "Stage d'observation et de vente d'un mois au sein du magasin de jeux vidéo Maxxi Games à Saint-Denis : accueil et conseil client, mise en rayon, tenue de caisse.",
+    link: "http://www.maxxi-games.fr/", linkLabel: "Site de l'entreprise" },
+  { title: "Coach adjoint bénévole", dates: "2023 - 2024 (saison complète)", org: "Équipe de football (catégorie U12), Gennevilliers",
+    full: "Coach adjoint bénévole d'une équipe de football de la catégorie U12 à Gennevilliers pendant une saison complète : organisation des entraînements et encadrement des jeunes joueurs.",
+    link: null, linkLabel: null }
+];
+
+const parcoursItems = document.querySelectorAll('[data-parcours]');
+const parcoursOverlay = document.getElementById('parcoursModalOverlay');
+const parcoursBodyEl = document.getElementById('parcoursModalBody');
+const parcoursClose = document.getElementById('parcoursModalClose');
+const parcoursPrev = document.getElementById('parcoursModalPrev');
+const parcoursNext = document.getElementById('parcoursModalNext');
+
+if (parcoursItems.length && parcoursOverlay) {
+  let currentParcours = 0;
+
+  function openParcours(index) {
+    currentParcours = (index + parcoursData.length) % parcoursData.length;
+    const p = parcoursData[currentParcours];
+    const contentHtml = Array.isArray(p.full)
+      ? `<ul class="task-checklist">${p.full.map(m => `<li>${m}</li>`).join('')}</ul>`
+      : `<p>${p.full}</p>`;
+    parcoursBodyEl.innerHTML = `
+      <h3 class="accent">${p.title}</h3>
+      <p class="parcours-modal-meta">${p.dates} — ${p.org}</p>
+      ${contentHtml}
+      ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:16px;">${p.linkLabel} &#8599;</a>` : ''}
+    `;
+    parcoursOverlay.classList.add('open');
+  }
+  function closeParcours() { parcoursOverlay.classList.remove('open'); }
+
+  parcoursItems.forEach(c => c.addEventListener('click', () => openParcours(Number(c.dataset.parcours))));
+  if (parcoursClose) parcoursClose.addEventListener('click', closeParcours);
+  if (parcoursPrev) parcoursPrev.addEventListener('click', () => openParcours(currentParcours - 1));
+  if (parcoursNext) parcoursNext.addEventListener('click', () => openParcours(currentParcours + 1));
+  parcoursOverlay.addEventListener('click', (e) => { if (e.target === parcoursOverlay) closeParcours(); });
+  document.addEventListener('keydown', (e) => {
+    if (!parcoursOverlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeParcours();
+    if (e.key === 'ArrowLeft') openParcours(currentParcours - 1);
+    if (e.key === 'ArrowRight') openParcours(currentParcours + 1);
+  });
+}
+
 // =========================================================
 // Page E5 — Tableau de bord des tâches de stage
 // =========================================================

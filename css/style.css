@@ -263,7 +263,22 @@ section { padding: 110px 0 60px; }
   opacity: 0.6;
 }
 
-/* -------- Timeline (Parcours) -------- */
+/* -------- Parcours (Formation / Expérience en 2 colonnes) -------- */
+.parcours-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 800px) { .parcours-columns { grid-template-columns: 1fr; gap: 10px; } }
+
+.parcours-col-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.parcours-col-icon {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(79,209,255,0.1);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.parcours-col-icon svg { width: 20px; height: 20px; }
+.parcours-col-head h3 { font-size: 1.1rem; }
+
 .timeline { position: relative; padding-left: 28px; }
 .timeline::before {
   content: "";
@@ -272,7 +287,19 @@ section { padding: 110px 0 60px; }
   width: 2px;
   background: linear-gradient(var(--accent), var(--accent-2));
 }
-.tl-item { position: relative; margin-bottom: 30px; padding: 20px 24px; }
+.tl-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 20px 22px 20px 60px;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.tl-item:hover { transform: translateY(-4px); border-color: var(--accent); }
 .tl-item::before {
   content: "";
   position: absolute;
@@ -282,12 +309,22 @@ section { padding: 110px 0 60px; }
   background: var(--accent);
   box-shadow: 0 0 0 4px rgba(79,209,255,0.2);
 }
-.tl-date { color: var(--accent); font-size: 0.82rem; font-weight: 600; }
-.tl-item h3 { margin: 4px 0; }
-.tl-item p { color: var(--text-dim); font-size: 0.92rem; }
-.tl-missions { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
-.tl-missions li { position: relative; padding-left: 18px; color: var(--text-dim); font-size: 0.9rem; line-height: 1.4; }
-.tl-missions li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.tl-badge {
+  position: absolute;
+  left: 20px; top: 20px;
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem;
+  color: #06090f;
+}
+.tl-date { color: var(--accent); font-size: 0.8rem; font-weight: 600; }
+.tl-item h3 { margin: 4px 0; font-size: 1rem; }
+.tl-org { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 8px; }
+.tl-short { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 10px; }
+.tl-more { color: var(--accent); font-size: 0.8rem; }
+
+.parcours-modal-meta { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 16px; }
 
 /* -------- Projets -------- */
 .project-card { display: flex; flex-direction: column; gap: 10px; }
