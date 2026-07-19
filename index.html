@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kabir AMOUSSA — Portfolio BTS SIO SISR</title>
 <meta name="description" content="Portfolio de Kabir AMOUSSA, étudiant en BTS SIO option SISR — compétences réseaux, systèmes et cybersécurité.">
-<link rel="stylesheet" href="css/style.css?v=14">
+<script>(function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.dataset.theme='light';})();</script>
+<link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
 
@@ -18,19 +19,25 @@
 <nav class="navbar">
   <div class="container">
     <div class="logo">K.AMOUSSA</div>
-    <button class="nav-toggle" aria-label="Ouvrir le menu">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="#home">Accueil</a></li>
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#veille">Veille</a></li>
-      <li><a href="e5.html">E5</a></li>
-      <li><a href="e6.html">E6</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="navbar-right">
+      <ul class="nav-links">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#veille">Veille</a></li>
+        <li><a href="e5.html">E5</a></li>
+        <li><a href="e6.html">E6</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="Changer de thème">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+    </div>
   </div>
 </nav>
 
@@ -410,6 +417,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=13"></script>
+<script src="js/script.js?v=17"></script>
 </body>
 </html>

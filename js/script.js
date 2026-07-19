@@ -2,6 +2,21 @@
 // Portfolio Kabir AMOUSSA — interactions
 // =========================================================
 
+// Thème clair / sombre
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.dataset.theme === 'light';
+    if (isLight) {
+      delete document.documentElement.dataset.theme;
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.dataset.theme = 'light';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
+
 // Navbar : flou renforcé + fond plus opaque au scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
