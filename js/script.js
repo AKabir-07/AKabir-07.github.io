@@ -364,16 +364,14 @@ if (e5Grid && e5SidebarList) {
   // Filtres
   const legendItems = document.querySelectorAll('.legend-item');
   let activeBloc = 'all';
-  let activeLieu = 'all';
   let activeAnnee = 'all';
 
   function applyFilters() {
     let visibleCount = 0;
     taskCards.forEach(card => {
       const matchBloc = activeBloc === 'all' || card.dataset.bloc === activeBloc;
-      const matchLieu = activeLieu === 'all' || card.dataset.lieu === activeLieu;
       const matchAnnee = activeAnnee === 'all' || card.dataset.annee === activeAnnee;
-      const visible = matchBloc && matchLieu && matchAnnee;
+      const visible = matchBloc && matchAnnee;
       card.classList.toggle('hidden', !visible);
       if (visible) visibleCount++;
     });
@@ -386,13 +384,12 @@ if (e5Grid && e5SidebarList) {
     applyFilters();
   }));
 
-  // Chaque rangée de pastilles (lieu, année...) gère son propre état "active"
+  // Rangée de pastilles (année)
   document.querySelectorAll('.e5-filters').forEach(row => {
     const pills = row.querySelectorAll('.filter-pill');
     pills.forEach(pill => pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      if (pill.dataset.lieu !== undefined) activeLieu = pill.dataset.lieu;
       if (pill.dataset.annee !== undefined) activeAnnee = pill.dataset.annee;
       applyFilters();
     }));
@@ -468,13 +465,9 @@ if (e5Grid && e5SidebarList) {
     if (!card) return;
     // Réinitialise les filtres pour être sûr que la carte visée est bien visible
     activeBloc = 'all';
-    activeLieu = 'all';
     activeAnnee = 'all';
     legendItems.forEach(i => i.classList.toggle('active', i.dataset.bloc === 'all'));
-    document.querySelectorAll('.filter-pill').forEach(p => {
-      const isAll = p.dataset.lieu === 'all' || p.dataset.annee === 'all';
-      p.classList.toggle('active', isAll);
-    });
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.annee === 'all'));
     applyFilters();
 
     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
