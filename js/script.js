@@ -504,3 +504,115 @@ if (e5Grid && e5SidebarList) {
     if (e.key === 'ArrowRight') openTask(currentTask + 1);
   });
 }
+
+// =========================================================
+// Page E6 — Réalisations professionnelles (Annexe VII-1-A)
+// =========================================================
+const e6Realisations = [
+  {
+    num: "N°1",
+    organisation: "HYGECO",
+    intitule: "Déploiement d'une infrastructure de supervision des serveurs",
+    periode: "Juin 2026",
+    lieu: "HYGECO, Asnières-sur-Seine (stage)",
+    modalite: "En équipe",
+    short: "Mise en place d'une supervision Hyper-V / Docker / Prometheus / Grafana / Uptime Kuma, avec alertes automatiques.",
+    competences: {
+      concevoir: false,
+      installer: true,
+      exploiter: true
+    },
+    conditions: "Réalisée avec l'équipe informatique de l'entreprise, sur un serveur physique mis à disposition (virtualisation Hyper-V), en complément de l'infrastructure existante.",
+    ressources: ["Hyper-V", "Ubuntu Server LTS", "SSH", "Docker / Docker Compose", "Prometheus", "Grafana", "Windows Exporter", "Alertmanager (SMTP)", "Uptime Kuma", "PXE"],
+    description: "Mise en place d'une solution de supervision des serveurs de l'entreprise : création d'une VM Ubuntu Server sous Hyper-V, déploiement de Prometheus et Grafana via Docker pour la collecte de métriques et leur visualisation, intégration de Windows Exporter et création de règles d'alertes (serveur injoignable, CPU/RAM élevés), configuration de l'envoi d'alertes par email via Alertmanager. Déploiement complémentaire d'Uptime Kuma pour la supervision de disponibilité (sondes HTTPS, TCP, Ping, DNS) du site web et des services réseau. Participation également à une opération de masterisation et déploiement de postes via PXE.",
+    productions: [],
+    resultat: "Une infrastructure de supervision opérationnelle, avec collecte de métriques, tableaux de bord Grafana, alertes automatiques par email, et une documentation technique complète permettant la reprise ou la maintenance de la solution."
+  },
+  {
+    num: "N°2",
+    organisation: "À définir (formation)",
+    intitule: "Conception d'une infrastructure réseau — à définir",
+    periode: "2026 - 2027",
+    lieu: "Lycée Voillaume (formation)",
+    modalite: "—",
+    short: "Réalisation à venir, centrée sur la conception d'une infrastructure réseau (analyse de besoin, choix techniques, maquettage).",
+    competences: {
+      concevoir: true,
+      installer: false,
+      exploiter: false
+    },
+    conditions: "À définir.",
+    ressources: [],
+    description: "Cette réalisation reste à définir. Elle doit couvrir la compétence « Concevoir une solution d'infrastructure réseau », absente de la réalisation n°1 : analyse d'un besoin exprimé et de son contexte, étude d'impact d'une évolution d'infrastructure, dossier de choix techniques argumenté, maquettage/prototypage, préparation de tests de validation.",
+    productions: [],
+    resultat: ""
+  }
+];
+
+const compLabels = {
+  concevoir: "Concevoir une solution d'infrastructure réseau",
+  installer: "Installer, tester et déployer une solution d'infrastructure réseau",
+  exploiter: "Exploiter, dépanner et superviser une solution d'infrastructure réseau"
+};
+
+const e6SectionIcons = {
+  info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>',
+  tools: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>'
+};
+
+const e6Grid = document.getElementById('e6RealisationsGrid');
+if (e6Grid) {
+  e6Grid.innerHTML = e6Realisations.map((r, i) => `
+    <button class="glass card task-card" data-id="${i}" style="cursor:pointer;">
+      <span class="badge">${r.num}</span>
+      <h4 style="margin-top:10px;">${r.intitule}</h4>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:6px;">${r.organisation} — ${r.periode}</p>
+      <p>${r.short}</p>
+      <span class="veille-link accent">Voir la fiche complète...</span>
+    </button>
+  `).join('');
+
+  const e6Overlay = document.getElementById('e6ModalOverlay');
+  const e6BodyEl = document.getElementById('e6ModalBody');
+  const e6Close = document.getElementById('e6ModalClose');
+
+  function openE6(index) {
+    const r = e6Realisations[index];
+    const compHtml = Object.keys(compLabels).map(k => `
+      <li>${r.competences[k] ? '☑' : '☐'} ${compLabels[k]}</li>
+    `).join('');
+    const ressourcesHtml = r.ressources.length
+      ? `<div class="task-section"><div class="task-section-head">${e6SectionIcons.tools}<h4>Ressources utilisées</h4></div><ul class="task-checklist">${r.ressources.map(o => `<li>${o}</li>`).join('')}</ul></div>`
+      : '';
+    const resultatHtml = r.resultat
+      ? `<div class="task-section"><div class="task-section-head">${e6SectionIcons.target}<h4>Résultat</h4></div><p>${r.resultat}</p></div>`
+      : '';
+    e6BodyEl.innerHTML = `
+      <h3 class="accent">${r.intitule}</h3>
+      <p class="parcours-modal-meta">${r.organisation} — ${r.periode} — ${r.lieu}${r.modalite && r.modalite !== '—' ? ' — ' + r.modalite : ''}</p>
+      <div class="task-section">
+        <div class="task-section-head">${e6SectionIcons.check}<h4>Compétences travaillées</h4></div>
+        <ul class="comp-list">${compHtml}</ul>
+      </div>
+      <div class="task-section">
+        <div class="task-section-head">${e6SectionIcons.info}<h4>Conditions de réalisation</h4></div>
+        <p>${r.conditions}</p>
+      </div>
+      ${ressourcesHtml}
+      <div class="task-section">
+        <div class="task-section-head">${e6SectionIcons.info}<h4>Description</h4></div>
+        <p>${r.description}</p>
+      </div>
+      ${resultatHtml}
+    `;
+    e6Overlay.classList.add('open');
+  }
+  function closeE6() { e6Overlay.classList.remove('open'); }
+
+  document.querySelectorAll('#e6RealisationsGrid .task-card').forEach(c => c.addEventListener('click', () => openE6(Number(c.dataset.id))));
+  if (e6Close) e6Close.addEventListener('click', closeE6);
+  e6Overlay.addEventListener('click', (e) => { if (e.target === e6Overlay) closeE6(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && e6Overlay.classList.contains('open')) closeE6(); });
+}

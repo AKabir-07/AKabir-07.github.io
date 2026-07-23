@@ -369,6 +369,10 @@ section { padding: 110px 0 60px; }
 
 .parcours-modal-meta { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 16px; }
 
+/* -------- E6 : fiches de réalisation -------- */
+.comp-list { list-style: none; padding: 0; margin: 10px 0; }
+.comp-list li { padding: 6px 0; color: var(--text-dim); font-size: 0.92rem; }
+
 /* -------- Projets -------- */
 .project-card { display: flex; flex-direction: column; gap: 10px; }
 .project-card .tags { margin-top: 6px; }
