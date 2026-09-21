@@ -332,7 +332,88 @@ const e5Tasks = [
       { label: "Documentation", desc: "Rédaction de la documentation technique de l'installation, la configuration et l'utilisation de la solution." }
     ],
     images: [],
-    resultat: "Une supervision de disponibilité opérationnelle sur le site web et les services réseau clés, avec alertes automatiques en cas d'interruption." }
+    resultat: "Une supervision de disponibilité opérationnelle sur le site web et les services réseau clés, avec alertes automatiques en cas d'interruption." },
+
+  { id: 9, title: "Administration Active Directory — TRANSCUBE (groupes, GPO, quotas)", icon: "server", bloc: "service", lieu: "formation", annee: 1,
+    short: "TP de simulation d'entreprise portuaire (TRANSCUBE) : création de groupes de sécurité, partage sécurisé d'un répertoire RH, stratégies de mot de passe et de verrouillage, mise en place de quotas disque.",
+    tags: ["Active Directory", "GPO", "Sécurité", "Quotas disque"],
+    description: "Dans le cadre d'un TP simulant le système d'information de la société TRANSCUBE (gestion de containeurs portuaires), j'ai administré un domaine Active Directory : création et organisation des groupes de sécurité, gestion des droits d'accès à un répertoire partagé, mise en place de stratégies de groupe et de quotas disque.",
+    outils: ["Windows Server", "Active Directory Users and Computers", "Stratégie de groupe (GPO)", "Quotas de disque NTFS"],
+    travauxIntro: "J'ai d'abord créé l'arborescence de groupes de sécurité de l'entreprise (Direction, Chefs de service, Ventes, Service clients, RH, Comptabilité) puis affecté les utilisateurs à chacun, avant de sécuriser un répertoire RH et de configurer les stratégies de sécurité du domaine.",
+    etapes: [
+      { label: "Création des groupes", desc: "Création des groupes de sécurité (Direction, ChefDeService, Ventes, ServiceClients, RH, Comptabilité) et affectation des comptes utilisateurs correspondants." },
+      { label: "Vérification d'appartenance", desc: "Contrôle de l'appartenance des comptes aux groupes et étude du rôle du groupe intégré « Utilisateurs du domaine » et de l'onglet « Géré par »." },
+      { label: "Partage sécurisé du répertoire RH", desc: "Création et partage d'un répertoire RH, attribution du contrôle total au groupe Ressources Humaines et suppression du groupe « Tout le monde », puis test d'accès avec un compte non autorisé." },
+      { label: "Stratégies de mot de passe", desc: "Configuration du changement de mot de passe mensuel, de l'historique des 6 derniers mots de passe et des exigences de complexité." },
+      { label: "Verrouillage de compte", desc: "Verrouillage après 3 tentatives infructueuses avec durée de verrouillage permanente, et application immédiate via GPUPDATE /FORCE." },
+      { label: "Quotas disque", desc: "Activation des quotas NTFS (limite 10 Go, avertissement à 9 Go avec envoi d'un mail) et mise en place d'un quota flexible de 500 Mo sur un dossier partagé." }
+    ],
+    images: [],
+    resultat: "Un domaine Active Directory structuré et sécurisé, avec une gestion des droits d'accès conforme au principe du moindre privilège, des stratégies de mot de passe renforcées et une maîtrise de l'espace disque par quotas." },
+
+  { id: 10, title: "Transport des VLAN, routage inter-VLAN et déploiement VTP (Packet Tracer)", icon: "server", bloc: "patrimoine", lieu: "formation", annee: 1,
+    short: "Maquette Packet Tracer : mise en œuvre du trunking 802.1Q, du routage inter-VLAN en « router-on-a-stick » avec sous-interfaces, puis déploiement automatisé des VLAN via le protocole VTP.",
+    tags: ["VLAN", "802.1Q", "Routage inter-VLAN", "VTP"],
+    description: "TP réseau (Exolab) de conception et de mise en œuvre d'une maquette Packet Tracer traitant du transport des VLAN sur liaisons trunk, du routage inter-VLAN par sous-interfaces de routeur et de la propagation automatique des VLAN avec le protocole VTP.",
+    outils: ["Cisco Packet Tracer", "Commutateurs et routeur Cisco (IOS)", "Protocole 802.1Q", "VTP"],
+    travauxIntro: "J'ai construit la maquette réseau (VLAN Production/Ventes, puis VLAN Serveurs) et vérifié en mode simulation l'étiquetage 802.1Q des trames sur les liens trunk, avant de faire évoluer l'architecture pour le routage inter-VLAN et le déploiement VTP.",
+    etapes: [
+      { label: "Transport des VLAN", desc: "Configuration des VLAN 2 (production) et 3 (ventes) sur les commutateurs et visualisation, en mode simulation, du tag VLAN dans les trames transportées sur les liaisons trunk." },
+      { label: "Routage inter-VLAN", desc: "Ajout d'un routeur configuré en « router-on-a-stick » avec des sous-interfaces dédiées à chaque VLAN pour permettre l'accès à un serveur de ressources partagées (VLAN 10)." },
+      { label: "Tests de connectivité", desc: "Validation de la communication entre les postes des services Production/Ventes et le serveur de ressources." },
+      { label: "Déploiement VTP", desc: "Configuration d'un commutateur en serveur VTP (domaine « domVTP », mot de passe) et des autres en clients VTP, puis vérification de la propagation des VLAN et de leurs modifications." },
+      { label: "Extension de la maquette", desc: "Ajout d'un nouveau VLAN Comptabilité propagé automatiquement par VTP, puis d'une branche avec un commutateur en mode transparent pour isoler un VLAN 99 non propagé." }
+    ],
+    images: [],
+    resultat: "Une maquette réseau fonctionnelle démontrant la segmentation par VLAN, un routage inter-VLAN opérationnel via sous-interfaces, et une gestion centralisée des VLAN par VTP, avec vérification du comportement d'un VLAN isolé en mode transparent." },
+
+  { id: 11, title: "Déploiement d'un service DHCP/DNS et extension d'un réseau de bureaux", icon: "server", bloc: "projet", lieu: "formation", annee: 1,
+    short: "Plan d'action en équipe : ajout d'un serveur en baie de brassage, activation des services DHCP et DNS, puis extension du réseau à un nouveau bureau (switch, PC, imprimante).",
+    tags: ["DHCP", "DNS", "Plan d'action", "Packet Tracer"],
+    description: "Réalisation en équipe, sous Packet Tracer, d'un plan d'action visant à intégrer un serveur physique dans une baie de brassage, à y activer les services DHCP et DNS, puis à raccorder un nouveau bureau au réseau existant.",
+    outils: ["Packet Tracer", "Services DHCP/DNS", "Baie de brassage"],
+    travauxIntro: "En tant que rédacteur du plan d'action, j'ai détaillé les tâches à réaliser par l'équipe : câblage du serveur, configuration IP statique, activation des services, puis rattachement des postes clients en DHCP.",
+    etapes: [
+      { label: "Serveur et baie de brassage", desc: "Raccordement du serveur physique au commutateur, renommage et configuration en IP statique." },
+      { label: "Service DHCP", desc: "Activation du service DHCP, création d'un pool d'adresses dédié avec une plage réservée pour les équipements d'infrastructure." },
+      { label: "Service DNS", desc: "Activation du service DNS et création des enregistrements de type A pour les équipements du réseau." },
+      { label: "Extension bureau 3", desc: "Ajout d'un commutateur, de deux postes et d'une imprimante dans un nouveau bureau, raccordés à la baie de brassage." },
+      { label: "Tests clients DHCP", desc: "Bascule des postes en attribution dynamique et vérification que l'adresse reçue appartient bien à la plage définie." },
+      { label: "Test de saturation DHCP", desc: "Limitation du pool à 2 adresses puis renouvellement des baux : observation de l'attribution d'adresses APIPA (169.254.x.x) aux postes non servis, et vérification qu'elles ne permettent la communication qu'au sein du même réseau, sans accès à Internet." }
+    ],
+    images: [],
+    resultat: "Un service DHCP/DNS opérationnel distribuant automatiquement les adresses aux postes clients, un réseau étendu à un nouveau bureau sans configuration manuelle poste par poste, et une compréhension pratique des limites de l'auto-configuration APIPA." },
+
+  { id: 12, title: "Configuration de postes virtuels en réseau interne (VirtualBox / PowerShell)", icon: "monitor", bloc: "projet", lieu: "formation", annee: 1,
+    short: "Plan d'action en équipe : création de deux machines virtuelles sous VirtualBox, renommage et configuration IP via PowerShell, mise en réseau interne et tests de connectivité.",
+    tags: ["VirtualBox", "PowerShell", "Réseau interne"],
+    description: "Réalisation en équipe d'un plan d'action de virtualisation : création d'une machine virtuelle Windows 10, clonage, puis administration des deux postes en ligne de commande PowerShell (renommage, adressage IP) dans un réseau interne isolé.",
+    outils: ["VirtualBox", "Windows 10", "PowerShell"],
+    travauxIntro: "En tant que rédacteur du plan d'action, j'ai décrit la création de la première VM, son clonage, puis l'administration des deux postes via PowerShell avant de valider la connectivité en réseau interne.",
+    etapes: [
+      { label: "Création de la VM", desc: "Création de PC-TEST-1 sous VirtualBox (mémoire, disque virtuel VDI) et configuration du mode d'accès réseau interne." },
+      { label: "Renommage et adressage PowerShell", desc: "Renommage du poste avec Rename-Computer et configuration d'une adresse IP statique avec New-NetIPAddress." },
+      { label: "Clonage", desc: "Clonage intégral de la VM en PC-TEST-2 avec régénération des adresses MAC, puis renommage et adressage distinct." },
+      { label: "Tests de connectivité", desc: "Vérification du ping entre les deux VM en réseau interne, et confirmation de l'absence de communication avec le poste physique hôte." }
+    ],
+    images: [],
+    resultat: "Deux postes virtuels correctement isolés en réseau interne, administrés en ligne de commande PowerShell, avec une connectivité validée entre eux et une étanchéité confirmée vis-à-vis du poste hôte." },
+
+  { id: 13, title: "Prise en main de PowerShell (cmdlets et scripts de base)", icon: "document", bloc: "devpro", lieu: "formation", annee: 1,
+    short: "Découverte guidée des cmdlets PowerShell (Write-Host, Get-Process, Get-Service, Where-Object, New-Item) et premier script avec variables sous PowerShell ISE.",
+    tags: ["PowerShell", "Scripting", "Auto-formation"],
+    description: "Séquence de montée en compétence sur PowerShell : découverte de cmdlets courantes, de leur documentation intégrée, et rédaction d'un premier script avec variables.",
+    outils: ["Windows PowerShell", "PowerShell ISE"],
+    travauxIntro: "J'ai testé progressivement des cmdlets de base, consulté leur aide en ligne, puis écrit un premier script utilisant des variables et des variables d'environnement.",
+    etapes: [
+      { label: "Affichage et aide en ligne", desc: "Utilisation de Write-Host pour afficher du texte et de Get-Help -online pour consulter la documentation d'une cmdlet." },
+      { label: "Processus et services", desc: "Utilisation de Get-Process et Get-Service pour lister les processus et services Windows, puis filtrage avec Where-Object selon leur statut." },
+      { label: "Création d'éléments", desc: "Utilisation de New-Item pour créer des fichiers et dossiers en ligne de commande." },
+      { label: "Premier script", desc: "Rédaction, sous PowerShell ISE, d'un script utilisant des variables pour afficher un message personnalisé." },
+      { label: "Variables d'environnement", desc: "Utilisation de $env:USERNAME, $env:COMPUTERNAME et $PWD pour interroger le contexte d'exécution." }
+    ],
+    images: [],
+    resultat: "Une autonomie de base sur PowerShell (cmdlets courantes, aide en ligne, scripts simples), réinvestie ensuite dans les TP d'administration de machines virtuelles." }
 ];
 
 const e5Icons = {
@@ -380,13 +461,15 @@ if (e5Grid && e5SidebarList) {
   const legendItems = document.querySelectorAll('.legend-item');
   let activeBloc = 'all';
   let activeAnnee = 'all';
+  let activeLieu = 'all';
 
   function applyFilters() {
     let visibleCount = 0;
     taskCards.forEach(card => {
       const matchBloc = activeBloc === 'all' || card.dataset.bloc === activeBloc;
       const matchAnnee = activeAnnee === 'all' || card.dataset.annee === activeAnnee;
-      const visible = matchBloc && matchAnnee;
+      const matchLieu = activeLieu === 'all' || card.dataset.lieu === activeLieu;
+      const visible = matchBloc && matchAnnee && matchLieu;
       card.classList.toggle('hidden', !visible);
       if (visible) visibleCount++;
     });
@@ -399,13 +482,14 @@ if (e5Grid && e5SidebarList) {
     applyFilters();
   }));
 
-  // Rangée de pastilles (année)
+  // Rangées de pastilles (lieu, année)
   document.querySelectorAll('.e5-filters').forEach(row => {
     const pills = row.querySelectorAll('.filter-pill');
     pills.forEach(pill => pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       if (pill.dataset.annee !== undefined) activeAnnee = pill.dataset.annee;
+      if (pill.dataset.lieu !== undefined) activeLieu = pill.dataset.lieu;
       applyFilters();
     }));
   });
@@ -481,8 +565,12 @@ if (e5Grid && e5SidebarList) {
     // Réinitialise les filtres pour être sûr que la carte visée est bien visible
     activeBloc = 'all';
     activeAnnee = 'all';
+    activeLieu = 'all';
     legendItems.forEach(i => i.classList.toggle('active', i.dataset.bloc === 'all'));
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.annee === 'all'));
+    document.querySelectorAll('.filter-pill').forEach(p => {
+      if (p.dataset.annee !== undefined) p.classList.toggle('active', p.dataset.annee === 'all');
+      if (p.dataset.lieu !== undefined) p.classList.toggle('active', p.dataset.lieu === 'all');
+    });
     applyFilters();
 
     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
