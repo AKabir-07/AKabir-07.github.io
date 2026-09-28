@@ -248,27 +248,33 @@
 <!-- PROJETS -->
 <section id="projets">
   <div class="container">
-    <h2 class="section-title reveal">Mes Projets</h2>
-    <p class="section-sub reveal">Sélection de réalisations en entreprise et en formation</p>
-    <div class="grid">
-      <a href="e5.html" class="glass card project-card reveal">
-        <h3>Infrastructure de supervision des serveurs</h3>
-        <p style="color:var(--text-dim); font-size:0.9rem;">Déploiement, en stage chez HYGECO, d'une solution de supervision : VM Ubuntu Server sous Hyper-V, collecte de métriques avec Prometheus, tableaux de bord Grafana, alertes automatiques par email, complétée par Uptime Kuma pour la supervision de disponibilité.</p>
-        <div class="tags"><span class="badge">Hyper-V</span><span class="badge">Docker</span><span class="badge">Prometheus</span><span class="badge">Grafana</span></div>
-        <span class="veille-link accent">Voir le détail &rarr;</span>
-      </a>
-      <a href="e5.html" class="glass card project-card reveal">
-        <h3>Segmentation réseau par VLAN et routage inter-VLAN</h3>
-        <p style="color:var(--text-dim); font-size:0.9rem;">Maquette Packet Tracer mettant en œuvre le trunking 802.1Q, le routage inter-VLAN par sous-interfaces (router-on-a-stick) et le déploiement automatisé des VLAN avec le protocole VTP.</p>
-        <div class="tags"><span class="badge">VLAN</span><span class="badge">802.1Q</span><span class="badge">VTP</span><span class="badge">Packet Tracer</span></div>
-        <span class="veille-link accent">Voir le détail &rarr;</span>
-      </a>
-      <a href="e5.html" class="glass card project-card reveal">
-        <h3>Administration Active Directory — groupes, GPO et quotas</h3>
-        <p style="color:var(--text-dim); font-size:0.9rem;">TP de simulation d'entreprise (TRANSCUBE) : structuration des groupes de sécurité, partage sécurisé d'un répertoire RH, stratégies de mot de passe et de verrouillage, quotas disque NTFS.</p>
-        <div class="tags"><span class="badge">Active Directory</span><span class="badge">GPO</span><span class="badge">Sécurité</span></div>
-        <span class="veille-link accent">Voir le détail &rarr;</span>
-      </a>
+    <h2 class="section-title reveal">Mon Projet Personnel</h2>
+    <p class="section-sub reveal">Un projet complet mené de bout en bout, hors formation</p>
+
+    <div class="glass card project-card reveal" style="max-width:900px;">
+      <span class="badge" style="margin-bottom:14px; display:inline-block;">Phase 1/5 — Expression de besoins</span>
+      <h3>Infrastructure réseau et système multi-site pour un cabinet comptable</h3>
+      <p style="color:var(--text-dim); font-size:0.9rem; margin:10px 0 16px;">
+        Projet personnel mené chez moi, sur mon propre matériel, dans le cadre d'un contexte professionnel fictif :
+        un cabinet d'expertise comptable de 15 collaborateurs réparti sur deux sites (Nantes / Saint-Nazaire) avec du
+        personnel nomade. Objectif : concevoir et maquetter une infrastructure réseau et système complète — segmentation
+        par VLAN, interconnexion sécurisée des sites par VPN IPsec, accès distant pour les nomades, annuaire Active
+        Directory, sauvegarde conforme à l'obligation légale de conservation des documents comptables, et supervision
+        des services critiques — le tout virtualisé sous Proxmox VE sur un poste unique (16 Go de RAM, SSD externe dédié).
+      </p>
+      <p style="color:var(--text-dim); font-size:0.9rem; margin-bottom:16px;">
+        La démarche suit une méthodologie de conduite de projet complète : expression de besoins, étude d'impact et
+        dossier de choix techniques, maquettage, tests de validation, puis documentation technique finale. Seule la
+        première étape est terminée à ce stade.
+      </p>
+      <div class="tags" style="margin-bottom:18px;">
+        <span class="badge">Proxmox VE</span><span class="badge">OPNsense</span><span class="badge">VPN IPsec</span>
+        <span class="badge">Active Directory</span><span class="badge">Sauvegarde RGPD</span><span class="badge">Prometheus / Grafana</span>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="assets/projet-meunier/Expression_de_besoins_Cabinet_Meunier.pdf" target="_blank" rel="noopener" class="veille-link accent">Consulter l'expression de besoins (PDF) &rarr;</a>
+        <a href="assets/projet-meunier/Expression_de_besoins_Cabinet_Meunier.docx" download class="veille-link accent">Télécharger le document (.docx) &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
