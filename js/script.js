@@ -409,7 +409,41 @@ const e5Tasks = [
       { label: "Variables d'environnement", desc: "Utilisation de $env:USERNAME, $env:COMPUTERNAME et $PWD pour interroger le contexte d'exécution." }
     ],
     images: [],
-    resultat: "Une autonomie de base sur PowerShell (cmdlets courantes, aide en ligne, scripts simples), réinvestie ensuite dans les TP d'administration de machines virtuelles." }
+    resultat: "Une autonomie de base sur PowerShell (cmdlets courantes, aide en ligne, scripts simples), réinvestie ensuite dans les TP d'administration de machines virtuelles." },
+
+  { id: 16, title: "Clé USB bootable multi-OS de dépannage (Ventoy)", icon: "monitor", bloc: "patrimoine", lieu: "formation", annee: 1,
+    short: "Création d'une clé USB de dépannage multi-OS avec Ventoy, intégrant un antivirus live, un testeur de RAM, un outil de clonage et une image Windows 10.",
+    tags: ["Ventoy", "Dépannage", "Clonezilla", "MemTest86"],
+    description: "Dans le cadre d'un atelier de professionnalisation SISR, j'ai conçu une trousse à outils du technicien support : une clé USB bootable multi-OS basée sur Ventoy, permettant de démarrer plusieurs outils de diagnostic et de maintenance sans réinstaller de système.",
+    outils: ["Ventoy", "Kaspersky Rescue Disk", "MemTest86", "Clonezilla", "ISO Windows 10"],
+    travauxIntro: "J'ai installé Ventoy sur une clé USB de 32 Go puis intégré quatre ISO couvrant la sécurité, le diagnostic matériel, le clonage et la réinstallation, avant de tester le démarrage de chaque outil et de documenter leur utilisation.",
+    etapes: [
+      { label: "Installation de Ventoy", desc: "Téléchargement et installation de Ventoy sur la clé USB via Ventoy2Disk.exe." },
+      { label: "Intégration des ISO", desc: "Copie des ISO Kaspersky Rescue Disk, MemTest86, Clonezilla et Windows 10 à la racine de la clé." },
+      { label: "Tests de démarrage", desc: "Validation du boot de la clé et du lancement de chaque outil depuis le menu Ventoy, en UEFI comme en Legacy BIOS." },
+      { label: "Test mémoire RAM", desc: "Réalisation d'un test complet avec MemTest86 (plusieurs passes) pour détecter d'éventuelles erreurs mémoire." },
+      { label: "Analyse antivirus hors ligne", desc: "Mise à jour des bases virales et analyse complète d'un poste avec Kaspersky Rescue Disk, sans démarrer Windows." },
+      { label: "Documentation", desc: "Rédaction des procédures d'utilisation de MemTest86 et de Kaspersky Rescue Disk à destination d'un futur technicien." }
+    ],
+    images: [],
+    resultat: "Une clé de dépannage universelle, fonctionnant sur l'ensemble du parc (BIOS Legacy, UEFI 32/64 bits, Secure Boot), avec des procédures documentées pour le test mémoire et la désinfection hors OS." },
+
+  { id: 17, title: "Conception et déploiement du réseau de la médiathèque de Civray", icon: "server", bloc: "service", lieu: "formation", annee: 1,
+    short: "Conception, configuration et test complet du réseau d'un site MediaTek86 sous Packet Tracer : routage inter-VLAN sur switch L3, NAT, réseau WiFi public, avec choix techniques justifiés.",
+    tags: ["VLAN", "Switch L3", "NAT", "WiFi", "Packet Tracer"],
+    description: "Dans le cadre d'une mission simulant un prestataire de services numériques (ITS 86) intervenant pour le réseau des médiathèques MediaTek86, j'ai conçu et configuré l'infrastructure réseau complète du site de Civray : plan d'adressage, routage inter-VLAN, accès Internet sécurisé et réseau WiFi public pour les usagers.",
+    outils: ["Cisco Packet Tracer", "Switch de niveau 3", "NAT / PAT", "DHCP", "Point d'accès WiFi"],
+    travauxIntro: "J'ai d'abord calculé le plan d'adressage IP à partir des paramètres du site (VLAN ADM, PRET, INTERCO et réseau public), avant de configurer le switch cœur, le routeur WAN et le réseau WiFi public, puis de valider l'ensemble par des tests de connectivité exhaustifs.",
+    etapes: [
+      { label: "Plan d'adressage", desc: "Calcul des réseaux VLAN (ADM, PRET, INTERCO) et du réseau public à partir de la formule d'adressage propre à chaque médiathèque du réseau." },
+      { label: "Switch cœur de niveau 3", desc: "Activation du routage inter-VLAN (ip routing), création des VLAN et des interfaces SVI, affectation des ports, route par défaut vers le routeur WAN." },
+      { label: "Routeur WAN et NAT", desc: "Configuration des interfaces, d'une route statique vers les VLAN internes et du NAT overload (PAT) pour donner un accès Internet à l'ensemble des postes avec une seule IP publique." },
+      { label: "Réseau WiFi public", desc: "Mise en place d'un serveur DHCP dédié et d'un point d'accès pour le réseau public, isolé des VLAN internes." },
+      { label: "Tests de connectivité", desc: "Validation par ping de toutes les combinaisons entre postes administratifs, prêt, public et Internet, avec vérification des tables de routage et des translations NAT." },
+      { label: "Justification des choix", desc: "Argumentation technique du recours à un switch L3 plutôt qu'un routeur externe, de la segmentation par VLAN et du NAT overload." }
+    ],
+    images: [],
+    resultat: "Une infrastructure réseau opérationnelle et testée, isolant les usages internes du réseau public tout en donnant à tous un accès Internet, avec une démarche de conception argumentée du choix des équipements et de l'architecture." }
 ];
 
 const e5Icons = {
@@ -614,22 +648,22 @@ const e6Realisations = [
   },
   {
     num: "N°2",
-    organisation: "À définir (formation)",
-    intitule: "Conception d'une infrastructure réseau — à définir",
-    periode: "2026 - 2027",
+    organisation: "ITS 86 (formation) — réseau MediaTek86",
+    intitule: "Conception et déploiement du réseau de la médiathèque de Civray",
+    periode: "1re année (Atelier de Professionnalisation 2)",
     lieu: "Lycée Voillaume (formation)",
-    modalite: "—",
-    short: "Réalisation à venir, centrée sur la conception d'une infrastructure réseau (analyse de besoin, choix techniques, maquettage).",
+    modalite: "Individuel",
+    short: "Conception argumentée et configuration complète du réseau d'un site MediaTek86 sous Packet Tracer : plan d'adressage, routage inter-VLAN sur switch L3, NAT, réseau WiFi public.",
     competences: {
       concevoir: true,
-      installer: false,
+      installer: true,
       exploiter: false
     },
-    conditions: "À définir.",
-    ressources: [],
-    description: "Cette réalisation reste à définir. Elle doit couvrir la compétence « Concevoir une solution d'infrastructure réseau », absente de la réalisation n°1 : analyse d'un besoin exprimé et de son contexte, étude d'impact d'une évolution d'infrastructure, dossier de choix techniques argumenté, maquettage/prototypage, préparation de tests de validation.",
+    conditions: "Mission réalisée individuellement sous Cisco Packet Tracer, dans le cadre d'un atelier de professionnalisation simulant l'intervention d'une ESN (ITS 86) pour le compte du réseau des médiathèques de la Vienne (MediaTek86).",
+    ressources: ["Cisco Packet Tracer", "Switch de niveau 3 (SW-Core)", "Routeur WAN", "NAT / PAT", "DHCP", "Point d'accès WiFi"],
+    description: "Conception complète de l'infrastructure réseau du site de Civray : calcul du plan d'adressage IP à partir des paramètres du site (VLAN ADM, PRET, INTERCO, réseau public), configuration du switch cœur de niveau 3 avec routage inter-VLAN, du routeur WAN avec NAT overload pour l'accès Internet, et construction du réseau WiFi public isolé pour les usagers. Chaque choix technique (switch L3 plutôt que routeur externe, segmentation par VLAN, NAT overload) est justifié. La solution est validée par une campagne de tests de connectivité documentée (pings entre tous les postes et vers Internet) et par la vérification des tables de routage et des translations NAT.",
     productions: [],
-    resultat: ""
+    resultat: "Une infrastructure réseau conçue, configurée et validée de bout en bout, isolant les usages internes du réseau public tout en garantissant à tous un accès Internet — couvrant la compétence « concevoir une solution d'infrastructure réseau » qui manquait à la première réalisation."
   }
 ];
 
