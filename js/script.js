@@ -78,16 +78,12 @@ if (veilleCards.length) {
 
 // Modale Compétences
 const skillsData = [
-  { title: "Serveur DHCP", desc: "J'ai appris les principes de base de la configuration d'un serveur DHCP : attribution automatique d'adresses IP, gestion des plages et des baux, pour simplifier l'administration d'un réseau." },
-  { title: "Serveur DNS", desc: "Je connais les notions de configuration d'un serveur DNS : résolution de noms, zones et enregistrements, essentielles au bon fonctionnement d'un réseau d'entreprise." },
-  { title: "Adressage IP", desc: "Je maîtrise l'adressage IP (IPv4, sous-réseaux) nécessaire pour planifier, configurer et dépanner une infrastructure réseau." },
-  { title: "Brassage & connectivité", desc: "J'ai pratiqué le brassage réseau et les tests de connectivité (ping, traceroute) pour diagnostiquer et valider une installation." },
-  { title: "Maintenance matérielle", desc: "J'ai réalisé des interventions matérielles sur poste Windows : changement de disque dur et de RAM, en formation et dans un contexte professionnel." },
-  { title: "Configuration IP", desc: "Je sais configurer les paramètres IP d'un poste Windows pour l'intégrer correctement à un réseau d'entreprise." },
-  { title: "PowerShell", desc: "J'ai découvert les bases de PowerShell pour automatiser des tâches d'administration système simples." },
-  { title: "Chiffrement", desc: "Je connais les notions de chiffrement de supports amovibles (type BitLocker To Go) pour protéger des données sensibles en mobilité." },
-  { title: "Sécurisation des postes", desc: "J'ai appris les bonnes pratiques de sécurisation des postes de travail, renforcées par l'e-sensibilisation SensCyber de Cybermalveillance.gouv.fr." },
-  { title: "Analyse de vulnérabilités", desc: "J'ai des notions d'analyse de vulnérabilités, pour identifier les failles potentielles d'un système avant qu'elles ne soient exploitées." }
+  { title: "VLAN, routage inter-VLAN & DHCP", desc: "Je configure des VLAN, le routage inter-VLAN, un serveur DHCP et le protocole de routage RIPv2 sur un réseau LAN/WAN en IPv4." },
+  { title: "VPN IPsec", desc: "J'ai mis en place des VPN IPsec (ISAKMP, listes de contrôle d'accès, Transform Set, Crypto Map) pour sécuriser les échanges entre sites." },
+  { title: "Cisco Packet Tracer", desc: "Je conçois et teste des maquettes réseau sous Cisco Packet Tracer, avec vérification de la connectivité entre les équipements." },
+  { title: "Déploiement de systèmes", desc: "Je déploie et configure Windows Server 2019, Windows 10/11, Ubuntu et Debian selon le contexte d'utilisation." },
+  { title: "Configuration IPv4 & SSH", desc: "Je configure l'adressage IPv4 et l'accès SSH pour administrer des postes et des serveurs à distance de façon sécurisée." },
+  { title: "Virtualisation & conteneurisation", desc: "Je mets en œuvre la virtualisation avec VirtualBox et la conteneurisation avec Docker pour déployer des environnements de test ou de production." }
 ];
 
 const skillCards = document.querySelectorAll('.skill-card');
