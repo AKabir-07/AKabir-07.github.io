@@ -78,12 +78,12 @@ if (veilleCards.length) {
 
 // Modale Compétences
 const skillsData = [
-  { title: "VLAN, routage inter-VLAN & DHCP", desc: "Je configure des VLAN, le routage inter-VLAN, un serveur DHCP et le protocole de routage RIPv2 sur un réseau LAN/WAN en IPv4." },
-  { title: "VPN IPsec", desc: "J'ai mis en place des VPN IPsec (ISAKMP, listes de contrôle d'accès, Transform Set, Crypto Map) pour sécuriser les échanges entre sites." },
+  { title: "VLAN, routage inter-VLAN & DHCP", desc: "Je configure des VLAN, le routage inter-VLAN par sous-interfaces, le déploiement automatisé des VLAN avec VTP, et un serveur DHCP — mis en pratique sur une maquette Packet Tracer et lors d'un plan d'action en équipe." },
+  { title: "Serveur DNS", desc: "Je configure un serveur DNS (activation du service, création d'enregistrements) pour assurer la résolution de noms sur un réseau local." },
   { title: "Cisco Packet Tracer", desc: "Je conçois et teste des maquettes réseau sous Cisco Packet Tracer, avec vérification de la connectivité entre les équipements." },
-  { title: "Déploiement de systèmes", desc: "Je déploie et configure Windows Server 2019, Windows 10/11, Ubuntu et Debian selon le contexte d'utilisation." },
+  { title: "Déploiement de systèmes", desc: "Je déploie et configure Windows Server, Windows 10/11 et Ubuntu Server selon le contexte : postes de travail, serveurs physiques ou machines virtuelles." },
   { title: "Configuration IPv4 & SSH", desc: "Je configure l'adressage IPv4 et l'accès SSH pour administrer des postes et des serveurs à distance de façon sécurisée." },
-  { title: "Virtualisation & conteneurisation", desc: "Je mets en œuvre la virtualisation avec VirtualBox et la conteneurisation avec Docker pour déployer des environnements de test ou de production." }
+  { title: "Virtualisation & conteneurisation", desc: "Je mets en œuvre la virtualisation avec Hyper-V et VirtualBox, et la conteneurisation avec Docker, pour déployer des environnements de test ou de production." }
 ];
 
 const skillCards = document.querySelectorAll('.skill-card');
